@@ -5,7 +5,7 @@ import modelInstance from "./data/DataModel";
 import "./App.css";
 import QuestOverview from "./QuestionnairesOverview/QuestOverview";
 import NewQuestionnaire from "./NewQuestionnaire/NewQuestionnaire";
-import Classes from "./Classes/Classes";
+import YourClasses from "./YourClasses/YourClasses";
 import NewClass from "./NewClass/NewClass";
 import ClassResults from "./ClassResults/ClassResults";
 
@@ -33,8 +33,8 @@ class App extends Component {
               render={() => <NewQuestionnaire model={modelInstance} />}
           />
           <Route
-              path="/classes"
-              render={() => <Classes model={modelInstance} />}
+              path="/YourClasses"
+              render={() => <YourClasses model={modelInstance} />}
           />
           <Route
               path="/new_class"

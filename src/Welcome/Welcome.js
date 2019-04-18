@@ -11,7 +11,7 @@ class Welcome extends Component {
             <button>Go to questionnaires!</button>
           </Link>
 
-          <Link to="/classes">
+          <Link to="/YourClasses">
               <button>Go to the classes!</button>
           </Link>
       </div>
