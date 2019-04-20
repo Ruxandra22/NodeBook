@@ -1,4 +1,6 @@
 # NodeBook
-To run it, type npm start in your terminal.
+To run it, type in your terminal:
+- npm install
+- npm start
 
 This is the REACT code for the NodeBook website version.
