@@ -1,0 +1,46 @@
+/* Cards Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
+
+.headline3{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card {
+    width:280px;
+    display: block;
+    margin: 60px auto;
+    box-shadow: 10px 5px 40px 20px darken(#341cac, 5%);
+    transition: .25s;
+  }
+  
+  .class-image {
+    height: 250px;
+    width: 100%;
+    padding: 15px;
+    width:100%;
+    background-size:cover;
+    color:#fff;
+  }
+  
+  .class-image--title {
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .class-name {
+    padding: 15px;
+    background-color:#fff;
+    width:100%;
+  }
+
+  .body-content {
+    padding-bottom: 40px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  
+
+
+

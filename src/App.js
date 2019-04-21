@@ -8,7 +8,8 @@ import NewQuestionnaire from "./NewQuestionnaire/NewQuestionnaire";
 import YourClasses from "./YourClasses/YourClasses";
 import NewClass from "./NewClass/NewClass";
 import ClassResults from "./ClassResults/ClassResults";
-//import SaveButtonComponent from ".components/SaveButtonComponent";
+import ClassOverview from "./ClassOverview/ClassOverview";
+
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,10 @@ class App extends Component {
           <Route
               path="/YourClasses"
               render={() => <YourClasses model={modelInstance} />}
+          />
+             <Route
+              path="/ClassOverview"
+              render={() => <ClassOverview model={modelInstance} />}
           />
           <Route
               path="/new_class"

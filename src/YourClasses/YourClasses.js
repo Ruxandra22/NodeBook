@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,100 +7,42 @@ import Container from "react-bootstrap/Container";
 
 //import SaveButtonComponent from "./components/SaveButtonComponent";
 
+import SaveButton from '../components/SaveButtonComponent';
+import CancelButton from '../components/CancelButtonComponent';
+import NodeBookLogo from '../components/Transparent_NodeBookComponent';
+
+import Image from 'react-bootstrap/Image'
 
 
-const Transparent_NodeBookComponent = () => (
-    <svg width={127} height={42} viewBox="0 0 127 42">
-      <defs>
-        <style>{".a{fill:url(#a);}"}</style>
-        <pattern
-          id="a"
-          preserveAspectRatio="none"
-          width="100%"
-          height="100%"
-          viewBox="0 0 1641 541"
-        >
-          <image width={1641} height={541} xlinkHref="ComponentTMP_1-image.png" />
-        </pattern>
-      </defs>
-      <rect className="a" width={127} height={42} />
-    </svg>
-  );
-
-
-const SaveButtonComponent = () => (
-    <svg width={117.188} height={37.613} viewBox="0 0 117.188 37.613">
-      <defs>
-        <style>
-          {
-            ".a{fill:url(#a);}.b{fill:#fff;font-size:18px;font-family:OpenSans-Regular, Open Sans;letter-spacing:0.002em;}"
-          }
-        </style>
-        <linearGradient
-          id="a"
-          x1={0.5}
-          x2={0.5}
-          y2={1}
-          gradientUnits="objectBoundingBox"
-        >
-          <stop offset={0} stopColor="#5e94b0" />
-          <stop offset={1} stopColor="#507f98" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(-1125.812 -716.387)">
-        <rect
-          className="a"
-          width={117.189}
-          height={37.613}
-          rx={7}
-          transform="translate(1125.812 716.387)"
-        />
-        <g transform="translate(1029.785 555)">
-          <text className="b" transform="translate(158 187)">
-            <tspan x={-20.691} y={0}>
-              {"SAVE"}
-            </tspan>
-          </text>
-        </g>
-      </g>
-    </svg>
-  );
-
-const CancelButtonComponent = () => (
-    <svg width={117.188} height={37.613} viewBox="0 0 117.188 37.613">
-      <defs>
-        <style>
-          {
-            ".a{fill:#b9b9b9;}.b{fill:#fff;font-size:18px;font-family:OpenSans-Regular, Open Sans;letter-spacing:0.002em;}"
-          }
-        </style>
-      </defs>
-      <g transform="translate(-987.812 -716.387)">
-        <rect
-          className="a"
-          width={117.189}
-          height={37.613}
-          rx={7}
-          transform="translate(987.812 716.387)"
-        />
-        <g transform="translate(891.785 555)">
-          <text className="b" transform="translate(158 187)">
-            <tspan x={-33.603} y={0}>
-              {"CANCEL"}
-            </tspan>
-          </text>
-        </g>
-      </g>
-    </svg>
-  );
-
+class ClassImage extends React.Component {
+    render() {
+      const { image } = this.props;
+      var style = {
+        backgroundImage: 'url(' + image + ')',
+      };
+      return (
+               <header style={style} id={image} className="class-image" />       
+      )
+    }
+}
+  
+class ClassName extends React.Component {
+    render() {
+    return (
+        <div className="class-name">
+        <h2>Class 9A</h2> 
+        </div>
+    )
+    }
+}
 
 class YourClasses extends Component {
- 
+
     render() {
-        let CancelButton = CancelButtonComponent();
-        let SaveButton = SaveButtonComponent();
-        let NodeBookLogo = Transparent_NodeBookComponent();
+        let SaveBtn = SaveButton();
+        let CancelBtn = CancelButton();
+        let StudentClass = "Class 9A";
+       // let NodeBookLogo = NodeBookLogo();
         return (
             <div className="YourClasses">
                 <Row>
@@ -107,22 +50,30 @@ class YourClasses extends Component {
                     <Link to="/new_class">
                         <button>Create a new class!</button>
                     </Link>
-                
-                </Row>
-
-                <Row>
-                   {/* {NodeBookLogo} */}
-                </Row>
-                <Row>
-                    {CancelButton}
 
                 </Row>
                 <Row>
-                    <p>hellou :) </p>
-                    {SaveButton}
+                    <div id="StudentClass"  key={StudentClass} className="card">
+                        <Link to={{pathname: '/ClassOverview/'+StudentClass}}>
+                             <ClassName title={StudentClass} />
+                             <ClassImage image={"/images/class5.jpg"} />
+                             
+                        </Link>
+                    </div>
+                </Row>
+                <Row>
+                    {CancelBtn}
+                </Row>
+                <Row>
+                    {SaveBtn}
+                </Row>
+                <Row>
+                    {/* {NodeBookLogo} */}
                 </Row>
 
             </div>
+
+
         );
     }
 }
