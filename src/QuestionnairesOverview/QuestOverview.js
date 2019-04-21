@@ -6,7 +6,7 @@ class QuestOverview extends Component {
         return (
             <div className="Welcome">
                 <p>This is the questionnaires overview!</p>
-                <Link to="/new_questionnaire">
+                <Link to="/newQuestionnaire">
                     <button>Create a new questionnaire!</button>
                 </Link>
             </div>

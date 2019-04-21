@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 
 //import SaveButtonComponent from "./components/SaveButtonComponent";
 
@@ -21,16 +19,16 @@ class ClassImage extends React.Component {
         backgroundImage: 'url(' + image + ')',
       };
       return (
-               <header style={style} id={image} className="class-image" />       
+               <header style={style} id={image} className="class-image" />
       )
     }
 }
-  
+
 class ClassName extends React.Component {
     render() {
     return (
         <div className="class-name">
-        <h2>Class 9A</h2> 
+        <h2>Class 9A</h2>
         </div>
     )
     }
@@ -47,7 +45,7 @@ class YourClasses extends Component {
             <div className="YourClasses">
                 <Row>
                     <p>This is where all your classes are!</p>
-                    <Link to="/new_class">
+                    <Link to="/newClass">
                         <button>Create a new class!</button>
                     </Link>
 
@@ -57,7 +55,7 @@ class YourClasses extends Component {
                         <Link to={{pathname: '/ClassOverview/'+StudentClass}}>
                              <ClassName title={StudentClass} />
                              <ClassImage image={"/images/class5.jpg"} />
-                             
+
                         </Link>
                     </div>
                 </Row>
