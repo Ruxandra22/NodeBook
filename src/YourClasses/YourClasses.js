@@ -2,14 +2,11 @@ import React, { Component } from "react";
 import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
-
+import classImage from "../images/class5.jpg"
 //import SaveButtonComponent from "./components/SaveButtonComponent";
 
 import SaveButton from '../components/SaveButtonComponent';
 import CancelButton from '../components/CancelButtonComponent';
-import NodeBookLogo from '../components/Transparent_NodeBookComponent';
-
-import Image from 'react-bootstrap/Image'
 
 
 class ClassImage extends React.Component {
@@ -54,7 +51,7 @@ class YourClasses extends Component {
                     <div id="StudentClass"  key={StudentClass} className="card">
                         <Link to={{pathname: '/ClassOverview/'+StudentClass}}>
                              <ClassName title={StudentClass} />
-                             <ClassImage image={"/images/class5.jpg"} />
+                             <ClassImage image={classImage}/>
 
                         </Link>
                     </div>
