@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Welcome from "./Welcome/Welcome";
+import HomePage from "./HomePage/HomePage";
 import modelInstance from "./data/DataModel";
 import "./App.css";
 import QuestOverview from "./QuestionnairesOverview/QuestOverview";
@@ -8,7 +8,7 @@ import NewQuestionnaire from "./NewQuestionnaire/NewQuestionnaire";
 import YourClasses from "./YourClasses/YourClasses";
 import NewClass from "./NewClass/NewClass";
 import ClassResults from "./ClassResults/ClassResults";
-//import SaveButtonComponent from ".components/SaveButtonComponent";
+import Menu from "./Menu/Menu";
 
 class App extends Component {
   constructor(props) {
@@ -21,32 +21,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">{this.state.title}</h1>
 
-          <Route exact path="/" component={Welcome} />
-          <Route
-            path="/questionnaires_overview"
-            render={() => <QuestOverview model={modelInstance} />}
-          />
-          <Route
-              path="/new_questionnaire"
-              render={() => <NewQuestionnaire model={modelInstance} />}
-          />
-          <Route
-              path="/YourClasses"
-              render={() => <YourClasses model={modelInstance} />}
-          />
-          <Route
-              path="/new_class"
-              render={() => <NewClass model={modelInstance} />}
-          />
-          <Route
-              path="/class_results"
-              render={() => <ClassResults model={modelInstance} />}
-          />
-        </header>
-      </div>
+        <Menu/>
+        <Route exact path="/" component={HomePage} />
+        <Route
+          path="/questionnairesOverview"
+          render={() => <QuestOverview model={modelInstance} />}
+        />
+        <Route
+            path="/newQuestionnaire"
+            render={() => <NewQuestionnaire model={modelInstance} />}
+        />
+        <Route
+            path="/yourClasses"
+            render={() => <YourClasses model={modelInstance} />}
+        />
+        <Route
+            path="/newClass"
+            render={() => <NewClass model={modelInstance} />}
+        />
+        <Route
+            path="/classResults"
+            render={() => <ClassResults model={modelInstance} />}
+        />
+        </div>
     );
   }
 }
