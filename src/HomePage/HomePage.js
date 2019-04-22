@@ -11,7 +11,7 @@ class HomePage extends Component {
           <div uk-slideshow="true">
               <ul className="uk-slideshow-items">
                   <li>
-                        <Class1/>
+                      <Class1/>
                   </li>
                   <li>
                       <Class2/>
