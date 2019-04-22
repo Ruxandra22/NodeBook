@@ -6,8 +6,23 @@ const httpOptions = {
 };
 
 class DataModel extends ObservableModel {
+
   constructor() {
+
     super();
+    this.myClasses = ["9A", "7B" , "10A"];
+
+  }
+
+
+
+
+  addClassName(className){
+
+  }
+
+  getClassNames(){
+      return this.myClasses;
   }
 
   // example of fetch method
@@ -15,12 +30,12 @@ class DataModel extends ObservableModel {
     return fetch(URL, httpOptions).then(this.processResponse);
   }
 
-  processResponse(response) {
-    if (response.ok) {
-      return response.json();
-    }
-    throw response;
-  }
+  // processResponse(response) {
+  //   if (response.ok) {
+  //     return response.json();
+  //   }
+  //   throw response;
+  // }
 }
 
 // Export an instance of DataModel
