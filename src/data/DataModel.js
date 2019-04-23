@@ -10,20 +10,33 @@ class DataModel extends ObservableModel {
   constructor() {
 
     super();
-    this.myClasses = ["9A", "7B" , "10A"];
+    this.myClasses = ["9B", "8A" , "10A" , "10B", "7C"];
 
   }
 
 
 
 
-  addClassName(className){
+  setClassName(className){
 
   }
 
   getClassNames(){
       return this.myClasses;
   }
+
+  setClassImage(classImageName){
+
+  }
+  getClassImage(){
+    let start = ["test"];
+    
+    let classImages = this.getClassNames().map((name) =>
+         "../images/"+name+".jpg"
+    )  
+    
+    console.log("test map in datamodel", classImages);
+}
 
   // example of fetch method
   getAllTeachers() {

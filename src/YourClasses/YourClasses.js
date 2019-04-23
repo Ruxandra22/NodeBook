@@ -2,13 +2,22 @@ import React, { Component } from "react";
 import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
-import classImage from "../images/class5.jpg"
+
 //import SaveButtonComponent from "./components/SaveButtonComponent";
 
-import SaveButton from '../components/SaveButtonComponent';
-import CancelButton from '../components/CancelButtonComponent';
+// import SaveButton from '../components/SaveButtonComponent';
+// import CancelButton from '../components/CancelButtonComponent';
 import modelInstance from "../data/DataModel";
-import { CardGroup } from "mdbreact";
+import { CardGroup, Container } from "mdbreact";
+
+
+//these need to be deleted and replaced with an API call to class images
+//in DataModel.js
+import classImage10A from "../images/10A.jpg"
+import classImage9B from "../images/9B.jpg"
+import classImage8A from "../images/8A.jpg"
+import classImage7C from "../images/7C.jpg"
+import classImage10B from "../images/10B.jpg"
 
 
 class ClassImage extends React.Component {
@@ -28,7 +37,7 @@ class ClassName extends React.Component {
       
     return (
         <div className="class-name">
-        <h2>Class 9A</h2>
+            <h2>{this.props.title}</h2>
         </div>
     )
     }
@@ -37,7 +46,7 @@ class ClassName extends React.Component {
 class YourClasses extends Component {
 
 
-    // componentDidMount(){
+     componentDidMount(){
     //     modelInstance.getClassNames().then(cards => {
     //         this.setState( {
     //             status: 'SUCCESS'
@@ -48,58 +57,54 @@ class YourClasses extends Component {
     //             status: 'ERROR'
     //         })
     //     })
-   // }
+
+    }  
+   
+
     render() {
-        let SaveBtn = SaveButton();
-        let CancelBtn = CancelButton();
-        let StudentClass = "Class 9A";
-       // let NodeBookLogo = NodeBookLogo();
-      console.log(modelInstance.getClassNames());
-       let cardsList = modelInstance.getClassNames().map((card) =>
-                <div id="StudentClass"  key={StudentClass} className="card">
-                    <Link to={{pathname: '/ClassOverview/'+StudentClass}}>
-                            <ClassName title={StudentClass} />
-                            <ClassImage image={classImage}/>
+        // let SaveBtn = SaveButton();
+        // let CancelBtn = CancelButton();
+        let classImages = [classImage10A , classImage9B,classImage8A ,classImage7C, classImage10B ];
+    
+        let i = 0;
+        let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
+               
+                <div id="studentClass"  key={studentClass} className="card">
+                    <Link to={{pathname: '/ClassOverview/'+studentClass}}>
+                            <ClassName title={"Class "+ studentClass} />
+                            <ClassImage image={classImages[i++]}/>
 
                     </Link>
-                    <p> {card}</p>
                 </div>
-            )
+
+        )
 
         return (
             <div className="YourClasses">
-                <Row>
-                    <p>This is where all your classes are!</p>
-                    <Link to="/newClass">
-                        <button>Create a new class!</button>
-                    </Link>
 
-                </Row>
-
-                
-
-                <Row>
-                    <div id="StudentClass"  key={StudentClass} className="card">
-                        <Link to={{pathname: '/ClassOverview/'+StudentClass}}>
-                             <ClassName title={StudentClass} />
-                             <ClassImage image={classImage}/>
-
-                        </Link>
+                <Container >
+                    <div className="titleContainer">
+                          <h1> MY CLASSES</h1>
                     </div>
-                </Row>
-                <Row>
-                   <p>TEST LOOP</p>
-                   {cardsList}
-                </Row>
-                <Row>
+                </Container>
+                <Container className="classesContainer">
+                    <Row>
+                        {studentClassNames}
+                    
+                        <div id="newClass"  key={"newClass"} className="card">
+                            <Link to={{pathname: '/NewClass'}}>
+                                    <ClassName title={"Create New Class"} />
+                                    <ClassImage image={"../images/10B.jpg"}/>
+
+                            </Link>
+                        </div>
+                    
+                    </Row>
+                </Container>
+                {/* <Row>
                     {CancelBtn}
-                </Row>
-                <Row>
                     {SaveBtn}
-                </Row>
-                <Row>
-                    {/* {NodeBookLogo} */}
-                </Row>
+                </Row> */}
 
             </div>
 

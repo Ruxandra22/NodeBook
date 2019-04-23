@@ -10,6 +10,7 @@
     "react-dom": "^16.8.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
+    "require-context": "^1.1.0",
     "uikit": "^3.1.2"
   },
   "scripts": {
