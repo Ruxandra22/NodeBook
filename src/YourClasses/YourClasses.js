@@ -77,7 +77,7 @@ class YourClasses extends Component {
         let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
                
                 <div id="studentClass"  key={studentClass} className="card">
-                    <Link to={{pathname: '/ClassOverview/'+studentClass}}>
+                    <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
                             <ClassName title={"Class "+ studentClass} />
                             <ClassImage image={classImages[i++]}/>
 

@@ -10,6 +10,7 @@ import NewClass from "./NewClass/NewClass";
 import ClassResults from "./ClassResults/ClassResults";
 import Menu from "./Menu/Menu";
 import ClassOverview from "./ClassOverview/ClassOverview";
+import TeacherProfile from "./TeacherProfile/TeacherProfile";
 
 
 class App extends Component {
@@ -39,12 +40,20 @@ class App extends Component {
             render={() => <YourClasses model={modelInstance} />}
         />
         <Route
+            path="/classOverview/:id"
+            render={(props) => <ClassOverview {...props} model={modelInstance} />}
+        />
+        <Route
             path="/newClass"
             render={() => <NewClass model={modelInstance} />}
         />
         <Route
             path="/classResults"
             render={() => <ClassResults model={modelInstance} />}
+        />
+        <Route
+            path="/teacherProfile"
+            render={() => <TeacherProfile model={modelInstance} />}
         />
         </div>
     );

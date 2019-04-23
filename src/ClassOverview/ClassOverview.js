@@ -9,7 +9,11 @@ class ClassOverview extends Component {
     render() {
    
       return (
-             <h2>Class Overview</h2>  
+              <Container >
+                  <div className="titleContainer">
+                      <h1> CLASS OVERVIEW {this.props.match.params.id}</h1>
+                  </div>
+            </Container>
       )
     }
 }
