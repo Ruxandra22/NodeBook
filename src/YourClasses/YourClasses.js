@@ -3,10 +3,15 @@ import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
 
+
+import Icon from '@material-ui/core/Icon';
+
 //import SaveButtonComponent from "./components/SaveButtonComponent";
 
 // import SaveButton from '../components/SaveButtonComponent';
 // import CancelButton from '../components/CancelButtonComponent';
+import CrossComponent from "../components/CrossComponent";
+
 import modelInstance from "../data/DataModel";
 import { CardGroup, Container } from "mdbreact";
 
@@ -18,6 +23,8 @@ import classImage9B from "../images/9B.jpg"
 import classImage8A from "../images/8A.jpg"
 import classImage7C from "../images/7C.jpg"
 import classImage10B from "../images/10B.jpg"
+
+
 
 
 class ClassImage extends React.Component {
@@ -94,12 +101,15 @@ class YourClasses extends Component {
                         <div id="newClass"  key={"newClass"} className="card">
                             <Link to={{pathname: '/NewClass'}}>
                                     <ClassName title={"Create New Class"} />
-                                    <ClassImage image={"../images/10B.jpg"}/>
-
+                                    {/* <ClassImage image={"image here"}/> */}
+                                    <div className="moreButton">
+                                            {CrossComponent()}
+                                    </div>    
                             </Link>
                         </div>
                     
                     </Row>
+
                 </Container>
                 {/* <Row>
                     {CancelBtn}

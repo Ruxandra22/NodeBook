@@ -7,6 +7,7 @@ import './Questionnaires.css';
 import modelInstance from "../data/DataModel";
 import { CardGroup, Container } from "mdbreact";
 
+import CrossComponent from "../components/CrossComponent";
 
 //these need to be deleted and replaced with an API call to images
 //in DataModel.js
@@ -72,7 +73,9 @@ class Questionnaires extends Component {
                         <div id="category"  key={"newClass"} className="card">
                             <Link to={{pathname: '/newQuestionnaire'}}>
                                     <Name title={"Create New Questionnaire"} />
-                                    <Image image={"../images/10B.jpg"}/>
+                                    <div className="moreButton">
+                                            {CrossComponent()}
+                                    </div>
 
                             </Link>
                         </div>
