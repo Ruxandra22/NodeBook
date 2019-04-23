@@ -33,7 +33,7 @@ class Menu extends Component {
                             <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="/questionnairesOverview">Questionnaires</MDBNavLink>
+                            <MDBNavLink to="/questionnaires">Questionnaires</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink to="/YourClasses">My Classes</MDBNavLink>

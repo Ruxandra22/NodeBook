@@ -1,0 +1,49 @@
+
+.titleContainer{
+
+    text-align: center;
+    align-content: center;
+    margin-top: 7%;
+    margin-bottom: -30px;
+  }
+  h1 {
+
+    font-family: Open Sans, Light;
+  }
+  
+  .card {
+      display: block;
+      padding-left: 2%;
+      padding-right: 2%;
+      padding-top: 1%;
+      padding-bottom: 2%;
+      margin-left: 5%;
+      margin-bottom: 5%;
+      box-shadow: 10px 5px 40px 20px darken(#341cac, 5%);
+      transition: .25s;
+    }
+  
+    .classContainer{
+      margin-top: 10%;
+    }
+    
+    .class-image {
+      height: 250px;
+      width: 100%;
+      padding: 15px;
+      width:100%;
+      background-size:cover;
+      color:#fff;
+    }
+    
+    .class-name {
+      padding: 15px;
+      background-color:#fff;
+      width:100%;
+    }
+  
+  
+  
+  
+  
+  

@@ -11,12 +11,23 @@ class DataModel extends ObservableModel {
 
     super();
     this.myClasses = ["9B", "8A" , "10A" , "10B", "7C"];
+    this.categories = ["Learning", "Class Atmosphere" , "Sociometrics"];
 
   }
 
+//-----------------------------//
+//      Questionnaires         //
+//-----------------------------//
+setCategory(category){
 
+}
 
-
+getCategories(){
+    return this.categories;
+}
+//-----------------------------//
+//      My Classes             //
+//-----------------------------//
   setClassName(className){
 
   }
@@ -28,7 +39,7 @@ class DataModel extends ObservableModel {
   setClassImage(classImageName){
 
   }
-  getClassImage(){
+  getClassImages(){
     let start = ["test"];
     
     let classImages = this.getClassNames().map((name) =>
@@ -37,6 +48,10 @@ class DataModel extends ObservableModel {
     
     console.log("test map in datamodel", classImages);
 }
+//-----------------------------//
+//     Other Stuff             //
+//-----------------------------//
+
 
   // example of fetch method
   getAllTeachers() {
