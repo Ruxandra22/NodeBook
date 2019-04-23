@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse, MDBContainer,
     MDBHamburgerToggler } from 'mdbreact';
+import Link from "react-router-dom/es/Link";
+import Col from "react-bootstrap/Col";
 import logo from "../images/transparent_NodeBook.PNG";
 import login_icon from "../images/user_login.png";
 import "./Menu.css";
@@ -20,12 +22,14 @@ class Menu extends Component {
 
     render() {
         return (
-            <MDBNavbar color="white" style={{ marginTop: '0px', width:'1422px'}} >
-                <MDBHamburgerToggler className="menuHamburger" id="menu" color="#2E2E2E" onClick={()=> this.toggleSingleCollapse('collapse')} />
+            <MDBNavbar color="white" style={{ marginTop: '0px'}} >
+                <MDBHamburgerToggler className="menuHamburger" id="menu" color="#000000" onClick={()=> this.toggleSingleCollapse('collapse')} />
                 <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
                 <MDBNavbarBrand>
-                    <img src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
-                    Name of the professor!
+                    <Link to={{pathname: '/teacherProfile'}}>
+                             Teacher's Name
+                             <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/> 
+                    </Link>      
                 </MDBNavbarBrand>
                 <MDBCollapse isOpen={this.state.collapse} navbar>
                     <MDBNavbarNav left="true">

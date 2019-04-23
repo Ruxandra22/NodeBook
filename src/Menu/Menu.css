@@ -6,4 +6,12 @@
 .logo{
     position: relative;
     left: -33%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.login-icon{
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    margin-left: 20px;
 }
