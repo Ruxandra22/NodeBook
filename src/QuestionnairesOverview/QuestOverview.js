@@ -4,7 +4,7 @@ import Link from "react-router-dom/es/Link";
 class QuestOverview extends Component {
     render() {
         return (
-            <div className="Welcome">
+            <div className="QuestOverview">
                 <p>This is the questionnaires overview!</p>
                 <Link to="/newQuestionnaire">
                     <button>Create a new questionnaire!</button>

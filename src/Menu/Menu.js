@@ -20,7 +20,7 @@ class Menu extends Component {
 
     render() {
         return (
-            <MDBNavbar color="white" style={{ marginTop: '0px', width:'1422px'}} >
+            <MDBNavbar color="white" style={{width:'1421px'}} >
                 <MDBHamburgerToggler className="menuHamburger" id="menu" color="#2E2E2E" onClick={()=> this.toggleSingleCollapse('collapse')} />
                 <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
                 <MDBNavbarBrand>

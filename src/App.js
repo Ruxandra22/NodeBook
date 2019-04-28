@@ -9,7 +9,7 @@ import YourClasses from "./YourClasses/YourClasses";
 import NewClass from "./NewClass/NewClass";
 import ClassResults from "./ClassResults/ClassResults";
 import Menu from "./Menu/Menu";
-import ClassOverview from "./ClassOverview/ClassOverview";
+import SaveQuest from "./SaveQuest/SaveQuest";
 
 
 class App extends Component {
@@ -34,6 +34,10 @@ class App extends Component {
             path="/newQuestionnaire"
             render={() => <NewQuestionnaire model={modelInstance} />}
         />
+          <Route
+              path="/saveQuestionnaire"
+              render={() => <SaveQuest model={modelInstance} />}
+          />
         <Route
             path="/yourClasses"
             render={() => <YourClasses model={modelInstance} />}

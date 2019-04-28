@@ -49,7 +49,7 @@ class YourClasses extends Component {
                 </Row>
                 <Row>
                     <div id="StudentClass"  key={StudentClass} className="card">
-                        <Link to={{pathname: '/ClassOverview/'+StudentClass}}>
+                        <Link to={{pathname: '/ClassOverview/' + StudentClass}}>
                              <ClassName title={StudentClass} />
                              <ClassImage image={classImage}/>
 
@@ -59,9 +59,12 @@ class YourClasses extends Component {
                 <Row>
                     {CancelBtn}
                 </Row>
-                <Row>
-                    {SaveBtn}
-                </Row>
+                <div>
+                    <Row>
+                        {SaveBtn}
+                    </Row>
+                </div>
+
                 <Row>
                     {/* {NodeBookLogo} */}
                 </Row>
