@@ -36,7 +36,7 @@ const SaveButtonComponent = () => (
       />
       <g transform="translate(1029.785 555)">
         <text className="b" transform="translate(158 187)">
-          <tspan x={-20.691} y={0}>
+          <tspan x={-27.691} y={0}>
             {"SAVE"}
           </tspan>
         </text>

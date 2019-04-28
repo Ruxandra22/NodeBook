@@ -1,0 +1,22 @@
+.new_questionnaire {
+    margin-top: 50px;
+}
+
+.questionnaire_title {
+    text-align: center;
+}
+
+.SC_buttons {
+    position: relative;
+    left: 1160px;
+    top: 200px;
+}
+
+.save_button {
+    margin-left: 20px;
+}
+
+.questions_panel {
+    text-align: center;
+    padding-top: 200px;
+}

@@ -29,60 +29,60 @@ import classImage10B from "../images/10B.jpg"
 
 class ClassImage extends React.Component {
     render() {
-      const { image } = this.props;
-      var style = {
-        backgroundImage: 'url(' + image + ')',
-      };
-      return (
-               <header style={style} id={image} className="class-image" />
-      )
+        const { image } = this.props;
+        var style = {
+            backgroundImage: 'url(' + image + ')',
+        };
+        return (
+            <header style={style} id={image} className="class-image" />
+        )
     }
 }
 
 class ClassName extends React.Component {
     render() {
-      
-    return (
-        <div className="class-name">
-            <h2>{this.props.title}</h2>
-        </div>
-    )
+
+        return (
+            <div className="class-name">
+                <h2>{this.props.title}</h2>
+            </div>
+        )
     }
 }
 
 class YourClasses extends Component {
 
 
-     componentDidMount(){
-    //     modelInstance.getClassNames().then(cards => {
-    //         this.setState( {
-    //             status: 'SUCCESS'
-    //         })
-    //         console.log("result", cards)
-    //     }).catch(()=>{
-    //         this.setState( {
-    //             status: 'ERROR'
-    //         })
-    //     })
+    componentDidMount(){
+        //     modelInstance.getClassNames().then(cards => {
+        //         this.setState( {
+        //             status: 'SUCCESS'
+        //         })
+        //         console.log("result", cards)
+        //     }).catch(()=>{
+        //         this.setState( {
+        //             status: 'ERROR'
+        //         })
+        //     })
 
-    }  
-   
+    }
+
 
     render() {
         // let SaveBtn = SaveButton();
         // let CancelBtn = CancelButton();
         let classImages = [classImage10A , classImage9B,classImage8A ,classImage7C, classImage10B ];
-    
+
         let i = 0;
         let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
-               
-                <div id="studentClass"  key={studentClass} className="card">
-                    <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                            <ClassName title={"Class "+ studentClass} />
-                            <ClassImage image={classImages[i++]}/>
 
-                    </Link>
-                </div>
+            <div id="studentClass"  key={studentClass} className="card">
+                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
+                    <ClassName title={"Class "+ studentClass} />
+                    <ClassImage image={classImages[i++]}/>
+
+                </Link>
+            </div>
 
         )
 
@@ -91,23 +91,23 @@ class YourClasses extends Component {
 
                 <Container >
                     <div className="titleContainer">
-                          <h1> MY CLASSES</h1>
+                        <h1> MY CLASSES</h1>
                     </div>
                 </Container>
                 <Container className="classesContainer">
                     <Row>
                         {studentClassNames}
-                    
+
                         <div id="newClass"  key={"newClass"} className="card">
                             <Link to={{pathname: '/NewClass'}}>
-                                    <ClassName title={"Create New Class"} />
-                                    {/* <ClassImage image={"image here"}/> */}
-                                    <div className="moreButton">
-                                            {CrossComponent()}
-                                    </div>    
+                                <ClassName title={"Create New Class"} />
+                                {/* <ClassImage image={"image here"}/> */}
+                                <div className="moreButton">
+                                    {CrossComponent()}
+                                </div>
                             </Link>
                         </div>
-                    
+
                     </Row>
 
                 </Container>

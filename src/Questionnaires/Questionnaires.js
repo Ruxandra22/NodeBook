@@ -76,10 +76,8 @@ class Questionnaires extends Component {
                                     <div className="moreButton">
                                             {CrossComponent()}
                                     </div>
-
                             </Link>
                         </div>
-                    
                     </Row>
                 </Container>
             </div>
