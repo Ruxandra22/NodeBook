@@ -20,3 +20,8 @@
     text-align: center;
     padding-top: 200px;
 }
+
+.send_button {
+    position: relative;
+    left: 100%;
+}
