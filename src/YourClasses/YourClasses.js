@@ -2,19 +2,10 @@ import React, { Component } from "react";
 import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
-
-
-import Icon from '@material-ui/core/Icon';
-
-//import SaveButtonComponent from "./components/SaveButtonComponent";
-
-// import SaveButton from '../components/SaveButtonComponent';
-// import CancelButton from '../components/CancelButtonComponent';
 import CrossComponent from "../components/CrossComponent";
-
 import modelInstance from "../data/DataModel";
+import NewClass from "../NewClass/NewClass";
 import { CardGroup, Container } from "mdbreact";
-
 
 //these need to be deleted and replaced with an API call to class images
 //in DataModel.js
@@ -75,20 +66,16 @@ class YourClasses extends Component {
 
         let i = 0;
         let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
-
             <div id="studentClass"  key={studentClass} className="card">
                 <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                    <ClassName title={"Class "+ studentClass} />
-                    <ClassImage image={classImages[i++]}/>
-
+                        <ClassName title={"Class "+ studentClass} />
+                        <ClassImage image={classImages[i++]}/>
                 </Link>
             </div>
-
         )
 
         return (
             <div className="YourClasses">
-
                 <Container >
                     <div className="titleContainer">
                         <h1> MY CLASSES</h1>
@@ -107,7 +94,6 @@ class YourClasses extends Component {
                                 </div>
                             </Link>
                         </div>
-
                     </Row>
 
                 </Container>
