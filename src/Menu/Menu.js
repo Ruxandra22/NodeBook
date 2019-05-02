@@ -34,19 +34,19 @@ class Menu extends Component {
                 <MDBCollapse isOpen={this.state.collapse} navbar>
                     <MDBNavbarNav left="true">
                         <MDBNavItem active="true">
-                            <MDBNavLink to="/">Home</MDBNavLink>
+                            <Link to="/">Home</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="/questionnaires">Questionnaires</MDBNavLink>
+                            <Link to="/questionnaires">Questionnaires</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="/YourClasses">My Classes</MDBNavLink>
+                            <Link to="/YourClasses">My Classes</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="#!">Tutorial</MDBNavLink>
+                            <Link to="#!">Tutorial</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="#!">Contact Us</MDBNavLink>
+                            <Link to="#!">Contact Us</Link>
                         </MDBNavItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
