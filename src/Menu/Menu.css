@@ -15,3 +15,28 @@
     margin-block-end: 5px;
     margin-left: 20px;
 }
+
+.menu_content {
+    font-family: Open Sans, Light;
+    font-size: 22px;
+}
+
+.home {
+    color: #5E94B0;
+}
+
+.questionnaire {
+    color: #5E94B0;
+}
+
+.my_classes {
+    color: #5E94B0;
+}
+
+.tutorial {
+    color: #5E94B0;
+}
+
+.contact_us {
+    color: #5E94B0;
+}
