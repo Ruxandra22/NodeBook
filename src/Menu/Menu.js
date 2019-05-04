@@ -42,13 +42,13 @@ class Menu extends Component {
                             <Link to="/" className="home">Home</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <Link to="/questionnaires" className="questionnaire">Questionnaires</Link>
+                            <Link to="/Questionnaires" className="questionnaire">Questionnaires</Link>
                         </MDBNavItem>
                         <MDBNavItem>
                             <Link to="/YourClasses" className="my_classes">My Classes</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <Link to="#!" className="tutorial">Tutorial</Link>
+                            <Link to="/Tutorial" className="tutorial">Tutorial</Link>
                         </MDBNavItem>
                         <MDBNavItem>
                             <Link to="#!" className="contact_us">Contact Us</Link>

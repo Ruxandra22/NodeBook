@@ -12,6 +12,7 @@ import Menu from "./Menu/Menu";
 import ClassOverview from "./ClassOverview/ClassOverview";
 import TeacherProfile from "./TeacherProfile/TeacherProfile";
 import SaveQuest from "./SaveQuest/SaveQuest";
+import Tutorial from "./Tutorial/Tutorial";
 
 
 class App extends Component {
@@ -29,7 +30,7 @@ class App extends Component {
         <Menu/>
         <Route exact path="/" component={HomePage} />
         <Route
-          path="/questionnaires"
+          path="/Questionnaires"
           render={() => <Questionnaires model={modelInstance} />}
         />
         <Route
@@ -59,6 +60,10 @@ class App extends Component {
         <Route
             path="/teacherProfile"
             render={() => <TeacherProfile model={modelInstance} />}
+        />
+        <Route
+            path="/Tutorial"
+            render={() => <Tutorial model={modelInstance} />}
         />
         </div>
     );
