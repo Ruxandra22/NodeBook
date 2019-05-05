@@ -75,7 +75,6 @@ class YourClasses extends Component {
 
         let i = 0;
         let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
-
             <div id="studentClass"  key={studentClass} className="card">
                 <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
                     <ClassName title={"Class "+ studentClass} />
@@ -83,12 +82,10 @@ class YourClasses extends Component {
 
                 </Link>
             </div>
-
         )
 
         return (
             <div className="YourClasses">
-
                 <Container >
                     <div className="titleContainer">
                         <h1> MY CLASSES</h1>
@@ -97,7 +94,6 @@ class YourClasses extends Component {
                 <Container className="classesContainer">
                     <Row>
                         {studentClassNames}
-
                         <div id="newClass"  key={"newClass"} className="card">
                             <Link to={{pathname: '/NewClass'}}>
                                 <ClassName title={"Create New Class"} />
@@ -107,15 +103,8 @@ class YourClasses extends Component {
                                 </div>
                             </Link>
                         </div>
-
                     </Row>
-
                 </Container>
-                {/* <Row>
-                    {CancelBtn}
-                    {SaveBtn}
-                </Row> */}
-
             </div>
 
 

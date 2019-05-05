@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./HomePage.css";
-import logo from "../images/transparent_NodeBook.PNG";
 import classImage from "../images/classroom.png";
+import Container from "react-bootstrap/Container";
+import Link from "react-router-dom/es/Link";
 
 class HomePage extends Component {
   render() {
@@ -38,12 +39,17 @@ class Class1 extends Component {
         let date = new Date().getDate(); //Current Date
         let month = new Date().getMonth() + 1; //Current Month
         let year = new Date().getFullYear(); //Current Year
+        let studentClass = "10A"
         return (
           <div className="class">
-            <h1> Class 10A
-                <img src={classImage} alt="Class Photo" width="128px" height="80"/>
-            </h1>
-            {date}.{month}.{year}
+              <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
+                  <Container className="card">
+                    <h1> Class {studentClass}
+                        <img src={classImage} alt="Class Photo" width="128px" height="80"/>
+                    </h1>
+                    {date}.{month}.{year}
+                  </Container>
+              </Link>
           </div>
         );
     }
@@ -54,12 +60,17 @@ class Class2 extends Component {
         let date = new Date().getDate(); //Current Date
         let month = new Date().getMonth() + 1; //Current Month
         let year = new Date().getFullYear(); //Current Year
+        let studentClass = "10B"
         return (
             <div className="class">
-                <h1> Class 10B
-                    <img src={classImage} alt="Class Photo" width="128px" height="80"/>
-                </h1>
-                {date}.{month}.{year}
+                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
+                    <Container className="card">
+                        <h1> Class {studentClass}
+                            <img src={classImage} alt="Class Photo" width="128px" height="80"/>
+                        </h1>
+                        {date}.{month}.{year}
+                    </Container>
+                </Link>
             </div>
         );
     }
@@ -70,12 +81,17 @@ class Class3 extends Component {
         let date = new Date().getDate(); //Current Date
         let month = new Date().getMonth() + 1; //Current Month
         let year = new Date().getFullYear(); //Current Year
+        let studentClass = "10C";
         return (
             <div className="class">
-                <h1> Class 10C
-                    <img src={classImage} alt="Class Photo" width="128px" height="80"/>
-                </h1>
-                {date}.{month}.{year}
+                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
+                    <Container className="card">
+                        <h1> Class {studentClass}
+                            <img src={classImage} alt="Class Photo" width="128px" height="80"/>
+                        </h1>
+                        {date}.{month}.{year}
+                    </Container>
+                </Link>
             </div>
         );
     }

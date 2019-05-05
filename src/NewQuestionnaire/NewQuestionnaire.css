@@ -7,21 +7,13 @@
 }
 
 .SC_buttons {
-    position: relative;
-    left: 1160px;
-    top: 200px;
+    padding: 150px 0 0 1160px;
 }
 
 .save_button {
     margin-left: 20px;
 }
 
-.questions_panel {
-    text-align: center;
-    padding-top: 200px;
-}
-
 .send_button {
-    position: relative;
-    left: 100%;
+    padding-right: 50px;
 }

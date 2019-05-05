@@ -9,6 +9,7 @@ import Popup from 'reactjs-popup'
 import SaveQuest from "../SaveQuest/SaveQuest";
 import Button from "react-bootstrap/Button";
 import SendQuest from "../SendQuest/SendQuest";
+import Col from "react-bootstrap/Col";
 
 class NewQuestionnaire extends Component {
     render() {
@@ -16,30 +17,36 @@ class NewQuestionnaire extends Component {
         let CancelBtn = CancelButton();
         let SendBtn = SendButton();
         return (
-            <div className="NewQuestionnaire container-fluid">
-                <div className="row new_questionnaire">
-                    <h2 className="col-md-11 questionnaire_title">NEW QUESTIONNAIRE</h2>
+            <div className="NewQuestionnaire">
+                <section>
+                    <h2 className="text-center h1-responsive my-5">
+                        New Questionnaire
+                    </h2>
                     <Popup
-                        trigger={<a><div className="send_button">{SendBtn}</div></a>}
+                        trigger={<a><div className="text-right send_button">{SendBtn}</div></a>}
                         modal
                         closeOnDocumentClick>
                             <span>
                                 <SendQuest/>
                             </span>
                     </Popup>
-                </div>
-                <h2 className="questions_panel">Questions here</h2>
-                <Row className="SC_buttons">
-                    <Link to="/questionnaires">{CancelBtn}</Link>
-                    <Popup
-                        trigger={<a><div className="save_button">{SaveBtn}</div></a>}
-                        modal
-                        closeOnDocumentClick>
-                            <span>
-                                <SaveQuest/>
-                            </span>
-                    </Popup>
-                </Row>
+                    <h2 className="text-center h1-responsive my-5">Questions here</h2>
+                    <Row className="SC_buttons">
+                        {/*<Col className="sm-2">*/}
+                            <Link to="/questionnaires">{CancelBtn}</Link>
+                        {/*</Col>*/}
+                        {/*<Col>*/}
+                            <Popup
+                                trigger={<a><div className="text-right save_button">{SaveBtn}</div></a>}
+                                modal
+                                closeOnDocumentClick>
+                                    <span>
+                                        <SaveQuest/>
+                                    </span>
+                            </Popup>
+                        {/*</Col>*/}
+                    </Row>
+                </section>
             </div>
         );
     }

@@ -51,7 +51,7 @@ class Menu extends Component {
                             <Link to="/Tutorial" className="tutorial">Tutorial</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <Link to="#!" className="contact_us">Contact Us</Link>
+                            <Link to="/ContactUs" className="contact_us">Contact Us</Link>
                         </MDBNavItem>
                     </MDBNavbarNav>
                 </MDBCollapse>

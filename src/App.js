@@ -13,6 +13,7 @@ import ClassOverview from "./ClassOverview/ClassOverview";
 import TeacherProfile from "./TeacherProfile/TeacherProfile";
 import SaveQuest from "./SaveQuest/SaveQuest";
 import Tutorial from "./Tutorial/Tutorial";
+import ContactUs from "./ContactUs/ContactUs";
 
 
 class App extends Component {
@@ -65,6 +66,10 @@ class App extends Component {
             path="/Tutorial"
             render={() => <Tutorial model={modelInstance} />}
         />
+          <Route
+              path="/ContactUs"
+              render={() => <ContactUs model={modelInstance} />}
+          />
         </div>
     );
   }

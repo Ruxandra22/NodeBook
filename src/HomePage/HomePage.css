@@ -8,3 +8,14 @@
     position: relative;
     top:5%;
 }
+
+.card {
+    width: 50px;
+    height: 350px;
+    display: block;
+    padding: 1% 2% 2% 2%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    box-shadow: 10px 5px 40px 20px darken(#341cac, 5%);
+    transition: .25s;
+}
