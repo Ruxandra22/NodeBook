@@ -2,10 +2,33 @@ import React, { Component } from "react";
 import CancelButton from "../components/CancelButtonComponent";
 import "./SendQuest.css"
 import SendButton from '../components/SendButtonComponent';
+import modelInstance from "../data/DataModel";
 
 class SendQuest extends Component {
-	render() {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			status: 'INITIAL',
+		}
+	}
+
+	componentDidMount(){
+		modelInstance.getStudents("1").then(result => {
+			this.setState({
+				status: 'LOADED',
+				students: result.students,
+				// theme: this.props.match.params.id
+			})
+			console.log(this.state.students);
+		}).catch(() => {
+			this.setState({
+				status: 'ERROR'
+			})
+		})
+	}
+
+	render() {
 		let CancelBtn = CancelButton();
 		let SendBtn = SendButton();
 		return (
