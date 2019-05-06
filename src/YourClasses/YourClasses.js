@@ -4,6 +4,7 @@ import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
 import CrossComponent from "../components/CrossComponent";
 import modelInstance from "../data/DataModel";
+import NewClass from "../NewClass/NewClass";
 import { CardGroup, Container } from "mdbreact";
 
 //these need to be deleted and replaced with an API call to class images
