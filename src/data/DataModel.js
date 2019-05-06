@@ -13,15 +13,12 @@ class DataModel {
   setCategory(category){
   }
 
-  getCategoriesTest(teacherId){
+  getCategories(teacherId){
     const url = `${BASE_URL}/api/teacher/list_categories/` + teacherId;
-    console.log("inside getCategoriesTest");
+    console.log("inside getCategories");
     return fetch(url).then(this.processResponse);
 }
 
-  getCategories(){
-      return this.categories;
-  }
 
 
 // My Classes    

@@ -51,7 +51,7 @@ class Questionnaires extends Component {
 
     componentDidMount(){
 
-        modelInstance.getCategoriesTest(this.state.teacherID).then(result => {
+        modelInstance.getCategories(this.state.teacherID).then(result => {
           
             this.setState( {
                 status: 'SUCCESS',
@@ -81,15 +81,7 @@ class Questionnaires extends Component {
                 </div>
         )
        
-        // let i = 0;
-        // let categories = modelInstance.getCategories().map((category) =>
-        //         <div id="category"  key={category} className="card">
-        //             <Link to={{pathname: '/Questionnaires-Category=' + category}}>
-        //                     <Name title={category} />
-        //                     <Image image={categoryImages[i++]}/>
-        //             </Link>
-        //         </div>
-        // )
+
         return (
             <div className="Questionnaires">
 
