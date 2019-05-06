@@ -7,14 +7,11 @@ import "./NewQuestionnaire.css";
 import Link from "react-router-dom/es/Link";
 import Popup from 'reactjs-popup'
 import SaveQuest from "../SaveQuest/SaveQuest";
-import Button from "react-bootstrap/Button";
 import SendQuest from "../SendQuest/SendQuest";
-import Col from "react-bootstrap/Col";
-import modelInstance from "../data/DataModel";
+import modelInstance from '../data/DataModel';
 
 class NewQuestionnaire extends Component {
-    
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +33,6 @@ class NewQuestionnaire extends Component {
             })
         })
     }
-    
     render() {
         let SaveBtn = SaveButton();
         let CancelBtn = CancelButton();
