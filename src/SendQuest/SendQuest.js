@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import CancelButton from "../components/CancelButtonComponent";
-import Button from "react-bootstrap/Button";
 import "./SendQuest.css"
+import SendButton from '../components/SendButtonComponent';
 
 class SendQuest extends Component {
 	render() {
 
 		let CancelBtn = CancelButton();
+		let SendBtn = SendButton();
 		return (
 			<div className="SendQuest">
 				<div className="modal-header">
@@ -39,7 +40,7 @@ class SendQuest extends Component {
 					<div className="row">
 						<div className="col-7"></div>
 						<a><div>{CancelBtn}</div></a>
-						<Button>Send</Button>
+						<a><div className="send_button_form">{SendBtn}</div></a>
 					</div>
 				</div>
 			</div>

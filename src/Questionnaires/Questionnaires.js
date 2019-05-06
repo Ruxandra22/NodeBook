@@ -18,7 +18,7 @@ import learning from "../images/learning.PNG"
 class Image extends React.Component {
     render() {
       const { image } = this.props;
-      var style = {
+      let style = {
         backgroundImage: 'url(' + image + ')',
       };
       return (
@@ -47,19 +47,19 @@ class Questionnaires extends Component {
    
 
     render() {
-        let categoryImages = [learning , atmosphere,sociometrics];
+        let categoryImages = [learning , atmosphere, sociometrics];
         let i = 0;
         let categories = modelInstance.getCategories().map((category) =>
                
                 <div id="category"  key={category} className="card">
-                    <Link to={{pathname: '/Questionnaires-Category='+category}}>
+                    <Link to={{pathname: '/Questionnaires-Category=' + category}}>
                             <Name title={category} />
                             <Image image={categoryImages[i++]}/>
                     </Link>
                 </div>
         )
         return (
-            <div className="YourClasses">
+            <div className="Questionnaires">
 
                 <Container >
                     <div className="titleContainer">
@@ -69,7 +69,6 @@ class Questionnaires extends Component {
                 <Container className="classContainer">
                     <Row>
                         {categories}
-                    
                         <div id="category"  key={"newClass"} className="card">
                             <Link to={{pathname: '/newQuestionnaire'}}>
                                     <Name title={"Create New Questionnaire"} />

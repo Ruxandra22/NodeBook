@@ -8,7 +8,7 @@ class ClassOverview extends Component {
       return (
               <Container >
                   <div className="titleContainer">
-                      <h1> CLASS OVERVIEW {this.props.match.params.id}</h1>
+                      <h1> Class Overview {this.props.match.params.id}</h1>
                   </div>
             </Container>
       )

@@ -1,6 +1,11 @@
 import ObservableModel from "./ObservableModel";
 
-const URL = ""; // THE URL TO GET THE API
+//http://redtachyon.eu.pythonanywhere.com/api/teacher/get_classes/1
+// /api/teacher/get_classes/<teacher_id>
+//test with teacher id = 1
+
+
+const BASE_URL = "http://redtachyon.eu.pythonanywhere.com/"; // THE URL TO GET THE API
 const httpOptions = {
   headers: { "Key": "YOUR_API_KEY" }
 };
@@ -32,9 +37,27 @@ getCategories(){
 
   }
 
-  getClassNames(){
-      return this.myClasses;
+
+  getClassNamesTest(teacher_id){
+      //return this.myClasses;
+      const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
+      console.log("inside GetClassNamesTest");
+        return fetch(url).then(this.processResponse);
+ 
   }
+
+//test API
+getStudents(classID) {
+  const url = `${BASE_URL}api/teacher/get_students/` + classID;
+  console.log("getStudents");
+  return fetch(url).then(this.processResponse);
+}
+
+
+  getClassNames(teacher_id){
+    return this.myClasses;
+}
+
 
   setClassImage(classImageName){
 

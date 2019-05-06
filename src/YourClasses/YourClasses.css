@@ -14,10 +14,7 @@ h1 {
 .card {
     width:300px;
     display: block;
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top: 1%;
-    padding-bottom: 2%;
+    padding: 1% 2% 2% 2%;
     margin-left: 5%;
     margin-bottom: 5%;
     box-shadow: 10px 5px 40px 20px darken(#341cac, 5%);
