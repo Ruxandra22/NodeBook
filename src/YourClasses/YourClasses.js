@@ -52,18 +52,25 @@ class ClassName extends React.Component {
 
 class YourClasses extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: 'INITIAL',
+            teachersClasses: []
+        }
+    }
 
 
     componentDidMount(){
 
-        let allClassesTeacherHas;
+     
             modelInstance.getClassNamesTest(1).then(result => {
               
                 this.setState( {
-                    status: 'SUCCESS'
+                    status: 'SUCCESS',
+                    teachersClasses: result.classes
                 })
-                allClassesTeacherHas = result;
-                console.log("result testing API", result)
+                console.log("result testing API", this.state.teachersClasses)
              
             }).catch(()=>{
                 this.setState( {
@@ -80,10 +87,10 @@ class YourClasses extends Component {
         let classImages = [classImage10A , classImage9B,classImage8A ,classImage7C, classImage10B ];
 
         let i = 0;
-        let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
+        let studentClassNames = this.state.teachersClasses.map((studentClass) =>
             <div id="studentClass"  key={studentClass} className="card">
-                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                    <ClassName title={"Class "+ studentClass} />
+                <Link to={{pathname: '/ClassOverview/'+ studentClass.name}}>
+                    <ClassName title={"Class "+ studentClass.name} />
                     <ClassImage image={classImages[i++]}/>
 
                 </Link>
