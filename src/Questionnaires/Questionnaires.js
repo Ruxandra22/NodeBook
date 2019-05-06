@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 
 import './Questionnaires.css';
 import modelInstance from "../data/DataModel";
-import { CardGroup, Container } from "mdbreact";
+import {Container } from "mdbreact";
 
 import CrossComponent from "../components/CrossComponent";
 
@@ -22,7 +22,7 @@ class Image extends React.Component {
         backgroundImage: 'url(' + image + ')',
       };
       return (
-               <header style={style} id={image} className="class-image" />
+          <header style={style} id={image} className="class-image" />
       )
     }
 }
@@ -63,7 +63,7 @@ class Questionnaires extends Component {
 
                 <Container >
                     <div className="titleContainer">
-                          <h1> QUESTIONNAIRES</h1>
+                          <h1> Questionnaires</h1>
                     </div>
                 </Container>
                 <Container className="classContainer">

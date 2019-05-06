@@ -7,11 +7,33 @@ import "./NewQuestionnaire.css";
 import Link from "react-router-dom/es/Link";
 import Popup from 'reactjs-popup'
 import SaveQuest from "../SaveQuest/SaveQuest";
-import Button from "react-bootstrap/Button";
 import SendQuest from "../SendQuest/SendQuest";
-import Col from "react-bootstrap/Col";
+import modelInstance from '../data/DataModel';
 
 class NewQuestionnaire extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: 'INITIAL',
+        }
+    }
+
+    componentDidMount(){
+        modelInstance.getStudents("1").then(students => {
+            console.log(students);
+            this.setState({
+                status: 'LOADED',
+                // cards: cards.photos,
+                // theme: this.props.match.params.id
+            })
+        }).catch(() => {
+            this.setState({
+                status: 'ERROR'
+            })
+        })
+    }
+
     render() {
         let SaveBtn = SaveButton();
         let CancelBtn = CancelButton();
