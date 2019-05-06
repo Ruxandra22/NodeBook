@@ -1,4 +1,4 @@
-const BASE_URL = "http://redtachyon.eu.pythonanywhere.com/"; // THE URL TO GET THE API
+const BASE_URL = "http://redtachyon.eu.pythonanywhere.com"; // THE URL TO GET THE API
 
 class DataModel {
 
@@ -39,7 +39,7 @@ class DataModel {
   }
 
   getStudents(classID) {
-    const url = `${BASE_URL}api/teacher/get_students/` + classID;
+    const url = `${BASE_URL}/api/teacher/get_students/` + classID;
     console.log("getStudents");
     return fetch(url).then(this.processResponse);
   }
