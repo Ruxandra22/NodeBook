@@ -7,6 +7,9 @@ class DataModel {
     this.categories = ["Learning", "Class Atmosphere" , "Sociometrics"];
   }
 
+//-----------------------------//
+//      Questionnaires         //
+//-----------------------------//
 
   setCategory(category){
 
@@ -16,30 +19,20 @@ class DataModel {
       return this.categories;
   }
 
+//-----------------------------//
+//      My Classes             //
+//-----------------------------//
   setClassName(className){
 
   }
 
 
-  getClassNamesTest(teacher_id){
-      //return this.myClasses;
+  getClassNames(teacher_id){
       const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
-      console.log("inside GetClassNamesTest");
+      console.log("inside getClassNames");
         return fetch(url).then(this.processResponse);
  
   }
-
-//test API
-getStudents(classID) {
-  const url = `${BASE_URL}api/teacher/get_students/` + classID;
-  console.log("getStudents");
-  return fetch(url).then(this.processResponse);
-}
-
-
-  getClassNames(teacher_id){
-    return this.myClasses;
-}
 
 
   setClassImage(classImageName){
@@ -56,6 +49,14 @@ getStudents(classID) {
     console.log("test map in datamodel", classImages);
   }
 
+//-----------------------------//
+//     students                //
+//-----------------------------//
+getStudents(classID) {
+  const url = `${BASE_URL}api/teacher/get_students/` + classID;
+  console.log("getStudents");
+  return fetch(url).then(this.processResponse);
+}
   getStudents(classID) {
     const url = `${BASE_URL}/api/teacher/get_students/` + classID;
     console.log("getStudents");
