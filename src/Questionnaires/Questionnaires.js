@@ -39,25 +39,57 @@ class Name extends React.Component {
 }
 
 class Questionnaires extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: 'INITIAL',
+            teacherID: 1,
+            categories: []
+        }
+    }
 
+    componentDidMount(){
 
-     componentDidMount(){
+        modelInstance.getCategoriesTest(this.state.teacherID).then(result => {
+          
+            this.setState( {
+                status: 'SUCCESS',
+                categories: result.categories
+            })
+            console.log("result testing API", this.state.categories)
+         
+        }).catch(()=>{
+            this.setState( {
+                status: 'ERROR'
+            })
+            console.log("status", this.state.status);
+        })
+}
 
-    }  
-   
 
     render() {
         let categoryImages = [learning , atmosphere, sociometrics];
+       
         let i = 0;
-        let categories = modelInstance.getCategories().map((category) =>
-               
-                <div id="category"  key={category} className="card">
-                    <Link to={{pathname: '/Questionnaires-Category=' + category}}>
-                            <Name title={category} />
+        let categoriesElement = this.state.categories.map((category) =>
+                <div id="category"  key={category.name} className="card">
+                    <Link to={{pathname: '/Questionnaires-Category=' + category.name}}>
+                            <Name title={category.name} />
                             <Image image={categoryImages[i++]}/>
                     </Link>
                 </div>
         )
+       
+        // let i = 0;
+        // let categories = modelInstance.getCategories().map((category) =>
+        //         <div id="category"  key={category} className="card">
+        //             <Link to={{pathname: '/Questionnaires-Category=' + category}}>
+        //                     <Name title={category} />
+        //                     <Image image={categoryImages[i++]}/>
+        //             </Link>
+        //         </div>
+        // )
         return (
             <div className="Questionnaires">
 
@@ -68,7 +100,7 @@ class Questionnaires extends Component {
                 </Container>
                 <Container className="classContainer">
                     <Row>
-                        {categories}
+                        {categoriesElement}
                         <div id="category"  key={"newClass"} className="card">
                             <Link to={{pathname: '/newQuestionnaire'}}>
                                     <Name title={"Create New Questionnaire"} />

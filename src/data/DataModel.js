@@ -7,51 +7,46 @@ class DataModel {
     this.categories = ["Learning", "Class Atmosphere" , "Sociometrics"];
   }
 
-//-----------------------------//
-//      Questionnaires         //
-//-----------------------------//
+
+// Questionnaires
 
   setCategory(category){
-
   }
+
+  getCategoriesTest(teacherId){
+    const url = `${BASE_URL}/api/teacher/list_categories/` + teacherId;
+    console.log("inside getCategoriesTest");
+    return fetch(url).then(this.processResponse);
+}
 
   getCategories(){
       return this.categories;
   }
 
-//-----------------------------//
-//      My Classes             //
-//-----------------------------//
-  setClassName(className){
 
+// My Classes    
+  setClassName(className){
   }
 
-
-  getClassNames(teacher_id){
-      const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
+  getClassNames(teacherId){
+      const url = `${BASE_URL}api/teacher/get_classes/` + teacherId;
       console.log("inside getClassNames");
         return fetch(url).then(this.processResponse);
- 
   }
 
-
   setClassImage(classImageName){
-
   }
 
   getClassImages(){
     let start = ["test"];
-    
     let classImages = this.getClassNames().map((name) =>
          "../images/" + name + ".jpg"
     )  
-    
     console.log("test map in datamodel", classImages);
   }
 
-//-----------------------------//
-//     students                //
-//-----------------------------//
+// Students
+
 getStudents(classID) {
   const url = `${BASE_URL}api/teacher/get_students/` + classID;
   console.log("getStudents");

@@ -64,7 +64,7 @@ class YourClasses extends Component {
     componentDidMount(){
 
      
-            modelInstance.getClassNamesTest(1).then(result => {
+            modelInstance.getClassNames(1).then(result => {
               
                 this.setState( {
                     status: 'SUCCESS',
@@ -88,7 +88,7 @@ class YourClasses extends Component {
 
         let i = 0;
         let studentClassNames = this.state.teachersClasses.map((studentClass) =>
-            <div id="studentClass"  key={studentClass} className="card">
+            <div id="studentClass"  key={studentClass.name} className="card">
                 <Link to={{pathname: '/ClassOverview/'+ studentClass.name}}>
                     <ClassName title={"Class "+ studentClass.name} />
                     <ClassImage image={classImages[i++]}/>
