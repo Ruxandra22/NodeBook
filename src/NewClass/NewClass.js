@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import modelInstance from "../data/DataModel";
 import './NewClass.css';
+import '../index.css';
 
 // Bootstrap components
 import Container from 'react-bootstrap/Container';
@@ -116,7 +117,7 @@ class NewClass extends React.Component {
                                 </Form.Group>
                             </Col>
                             <Col sm={3}>
-                                <Button size="sm" variant="primary" onClick={this.handleShow}>
+                                <Button size="sm" variant="primary_blue" onClick={this.handleShow}>
                                     Add student
                                 </Button>
                             </Col>
@@ -125,10 +126,10 @@ class NewClass extends React.Component {
                             <Col sm={3}></Col>
                             <Col sm={6}></Col>
                             <Col sm={3}>
-                                <Button size="sm" variant="secondary" href="/YourClasses">
+                                <Button size="sm" variant="gray" href="/YourClasses">
                                     Cancel
                                 </Button>
-                                <Button size="sm" variant="primary" type="Submit">Save</Button>
+                                <Button variant="primary_blue" size="sm" type="Submit">Save</Button>
                             </Col>
                         </Row>
                     </Container>
@@ -153,11 +154,11 @@ class NewClass extends React.Component {
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
-                        <Button type="submit">Submit</Button>
+                        <Button variant="primary_blue" type="submit">Submit</Button>
                     </Form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
+                        <Button variant="gray" onClick={this.handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>
