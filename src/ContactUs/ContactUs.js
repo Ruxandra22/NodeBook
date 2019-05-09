@@ -18,6 +18,7 @@ class ContactUs extends Component {
 					<h2 className="h1-responsive my-5 contact">
 						The support team is here to help you
 					</h2>
+					<h3> contactus@nodebook.com </h3>
 					<Row className="team">
 						<MDBCol lg="3" md="6" className="mt-5 mr-4">
 							<MDBCard testimonial>
@@ -29,7 +30,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Neza</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-									Frontend developer
+									UX & Front-End
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -44,7 +45,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Kata</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Frontend developer
+									UX & Front-End
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -59,7 +60,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Ruxi</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Frontend developer
+									 Front-End developer
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -74,8 +75,8 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Talha</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Frontend developer
-									</p>
+										Security
+									</p>	
 								</MDBCardBody>
 							</MDBCard>
 						</MDBCol>
@@ -91,7 +92,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Tim</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Frontend developer
+										Marketing
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -106,7 +107,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Victoria</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Frontend developer
+										Business Analyst
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -121,7 +122,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Ariel</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Frontend developer
+										Back-End
 									</p>
 								</MDBCardBody>
 							</MDBCard>
