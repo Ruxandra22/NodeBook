@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import modelInstance from "../data/DataModel";
+import React from "react";
 import './NewClass.css';
 
 import '../index.css';
