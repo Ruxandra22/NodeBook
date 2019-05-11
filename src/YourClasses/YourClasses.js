@@ -79,6 +79,24 @@ class YourClasses extends Component {
                 console.log("status", this.state.status);
             })
     }
+    // componentDidMount(){
+    //
+    //
+    //         modelInstance.getClassNames(1).then(result => {
+    //
+    //             this.setState( {
+    //                 status: 'SUCCESS',
+    //                 teachersClasses: result.classes
+    //             })
+    //             console.log("result testing API", this.state.teachersClasses)
+    //
+    //         }).catch(()=>{
+    //             this.setState( {
+    //                 status: 'ERROR'
+    //             })
+    //             console.log("status", this.state.status);
+    //         })
+    // }
 
 
     render() {
@@ -92,7 +110,6 @@ class YourClasses extends Component {
                 <Link to={{pathname: '/ClassOverview/'+ studentClass.name}}>
                     <ClassName title={"Class "+ studentClass.name} />
                     <ClassImage image={classImages[i++]}/>
-
                 </Link>
             </div>
         )

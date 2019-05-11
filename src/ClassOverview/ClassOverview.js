@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './ClassOverview.css';
 import Container from "react-bootstrap/Container";
+import modelInstance from "../data/DataModel";
 
 import { Network, Node, Edge } from 'react-vis-network';
 import Graph from "react-graph-vis";
@@ -91,10 +92,34 @@ class ClassOverview extends Component {
                         <Graph graph={graph} options={options} events={events} style={{ height: "640px" }} />
 
                    </div>
-                   
 
+          )
+    }
+
+    componentDidMount(){
+        // for now, the classID is hardcoded
+        modelInstance.getClassOverviewData("1").then(result => {
+            this.setState({
+                status: 'LOADED',
+                experiments: result.experiments,
+            })
+            console.log(this.state.students);
+        }).catch(() => {
+            this.setState({
+                status: 'ERROR'
+            })
+        });
+    }
+
+    render() {
+      return (
+          <Container >
+              <div className="titleContainer">
+                  <h1> Class Overview {this.props.match.params.id}</h1>
+              </div>
+          </Container>
       )
-      document.getElementById("root")
+      // document.getElementById("root")
     }
 }
   

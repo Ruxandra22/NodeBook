@@ -2,12 +2,54 @@ import React, { Component } from "react";
 import CancelButton from "../components/CancelButtonComponent";
 import "./SendQuest.css"
 import SendButton from '../components/SendButtonComponent';
+import modelInstance from "../data/DataModel";
 
 class SendQuest extends Component {
-	render() {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			status: 'INITIAL',
+		}
+	}
+
+	componentDidMount(){
+		// for now, the classID is hardcoded
+		console.log("test");
+		modelInstance.getStudents("1").then(result => {
+			this.setState({
+				status: 'LOADED',
+				students: result.students,
+			})
+			// console.log(this.state.students);
+			}).catch(() => {
+			this.setState({
+				status: 'ERROR'
+			})
+		});
+
+		// for now, the teacher's ID is hardcoded
+		modelInstance.getClassNames("1").then(result => {
+			this.setState({
+				classes: result.classes
+			})
+			}).catch(() => {
+			this.setState({
+				status: 'ERROR'
+			})
+		});
+	}
+
+	render() {
 		let CancelBtn = CancelButton();
 		let SendBtn = SendButton();
+
+		let dropdownList;
+		if (this.state.classes != null) {
+			dropdownList = this.state.classes.map((classResult) =>
+				<option key={classResult.id}>{classResult.name}</option>
+			)
+		}
 		return (
 			<div className="SendQuest">
 				<div className="modal-header">
@@ -25,9 +67,7 @@ class SendQuest extends Component {
 						<label>
 							Classes:
 							<select className="dropdown_classes" name="quest_category">
-								<option>10A</option>
-								<option>10B</option>
-								<option>10C</option>
+								{dropdownList}
 							</select>
 						</label>
 					</form>

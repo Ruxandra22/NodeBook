@@ -36,7 +36,7 @@ class Menu extends Component {
                              <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
                     </Link>
                 </MDBNavbarBrand>
-                <MDBCollapse className="w-25 p-3 menu_content" style="background-color: #eee;" isOpen={this.state.collapse} navbar>
+                <MDBCollapse className="w-25 p-3 menu_content" isOpen={this.state.collapse} navbar>
                     <MDBNavbarNav>
                         <MDBNavItem>
                             <Link to="/" className="home">Home</Link>
