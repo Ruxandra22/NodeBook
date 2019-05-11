@@ -15,6 +15,7 @@ class SendQuest extends Component {
 
 	componentDidMount(){
 		// for now, the classID is hardcoded
+		console.log("test");
 		modelInstance.getStudents("1").then(result => {
 			this.setState({
 				status: 'LOADED',
