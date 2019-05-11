@@ -15,12 +15,12 @@ import { createClass } from '../data/DataModel';
 class NewClass extends React.Component {
     constructor(props, context) {
         super(props, context);
-  
+
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleClassNameChange = this.handleClassNameChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-  
+
         this.state = {
             show: false,
             newStudent: '',
@@ -34,7 +34,7 @@ class NewClass extends React.Component {
     handleClose() {
         this.setState({ show: false });
     }
-  
+
     handleShow() {
         this.setState({ show: true });
     }
@@ -65,6 +65,9 @@ class NewClass extends React.Component {
         }
         this.setState({ classvalidated: true });
       }
+import modelInstance from "../data/DataModel";
+import './NewClass.css';
+import '../index.css';
 
     handleClassNameChange(event) {
         this.setState({
@@ -77,7 +80,69 @@ class NewClass extends React.Component {
             description: event.target.value
         })
     }
-  
+
+// Bootstrap components
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
+
+
+class NewClass extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
+        this.state = {
+            show: false,
+            newStudent: '',
+            className: '',
+            description: '',
+            studentvalidated: false,
+            classvalidated: false,
+        };
+    }
+
+    handleClose() {
+        this.setState({ show: false });
+    }
+
+    handleShow() {
+        this.setState({ show: true });
+    }
+
+    handleStudentSubmit(event) {
+        const form = event.currentTarget;
+        if (form.checkValidity() === true) {
+            console.log("Submitting new student");
+            console.log(this.newStudent);
+        }
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.setState({ studentvalidated: true });
+      }
+
+
+    handleClassSubmit(event) {
+        const form = event.currentTarget;
+        if (form.checkValidity() === true) {
+            console.log("Submitting new class");
+            console.log(this.className, this.description);
+            modelInstance.setClassName(this.className);
+        }
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.setState({ classvalidated: true });
+      }
+
     render() {
         const { studentvalidated } = this.state;
         const { classvalidated } = this.state;

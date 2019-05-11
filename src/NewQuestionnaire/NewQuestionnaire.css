@@ -1,0 +1,19 @@
+.new_questionnaire {
+    margin-top: 50px;
+}
+
+.questionnaire_title {
+    text-align: center;
+}
+
+.SC_buttons {
+    padding: 150px 0 0 1160px;
+}
+
+.save_button {
+    margin-left: 20px;
+}
+
+.send_button {
+    padding-right: 50px;
+}

@@ -26,7 +26,7 @@ const CancelButtonComponent = () => (
       />
       <g transform="translate(891.785 555)">
         <text className="b" transform="translate(158 187)">
-          <tspan x={-33.603} y={0}>
+          <tspan x={-38.603} y={0}>
             {"CANCEL"}
           </tspan>
         </text>

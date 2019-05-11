@@ -1,0 +1,16 @@
+.text_box {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    left: 17.6%;
+}
+
+.dropdown_classes {
+    position: relative;
+    left: 12.6%;
+    width: 400px;
+}
+
+.send_button_form {
+    padding-left: 20px;
+}
