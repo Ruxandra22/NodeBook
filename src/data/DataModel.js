@@ -19,9 +19,9 @@ class DataModel {
       return this.categories;
   }
 
-//-----------------------------//
-//      My Classes             //
-//-----------------------------//
+  //-----------------------------//
+  //      My Classes             //
+  //-----------------------------//
   setClassName(className){
 
   }
@@ -29,9 +29,13 @@ class DataModel {
 
   getClassNames(teacher_id){
       const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
-      console.log("inside getClassNames");
-        return fetch(url).then(this.processResponse);
+      return fetch(url).then(this.processResponse);
  
+  }
+
+  getClassOverviewData(classID) {
+    const url = `${BASE_URL}api/teacher/get_experiments/` + classID;
+    return fetch(url).then(this.processResponse);
   }
 
 
@@ -49,16 +53,11 @@ class DataModel {
     console.log("test map in datamodel", classImages);
   }
 
-//-----------------------------//
-//     students                //
-//-----------------------------//
-getStudents(classID) {
-  const url = `${BASE_URL}api/teacher/get_students/` + classID;
-  console.log("getStudents");
-  return fetch(url).then(this.processResponse);
-}
+  //-----------------------------//
+  //     students                //
+  //-----------------------------//
   getStudents(classID) {
-    const url = `${BASE_URL}/api/teacher/get_students/` + classID;
+    const url = `${BASE_URL}api/teacher/get_students/` + classID;
     console.log("getStudents");
     return fetch(url).then(this.processResponse);
   }
