@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
+import { createClass } from '../data/DataModel';
 
 
 class NewClass extends React.Component {
@@ -17,6 +18,8 @@ class NewClass extends React.Component {
   
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.handleClassNameChange = this.handleClassNameChange.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
   
         this.state = {
             show: false,
@@ -51,11 +54,10 @@ class NewClass extends React.Component {
 
 
     handleClassSubmit(event) {
+        event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === true) {
-            console.log("Submitting new class");
-            console.log(this.className, this.description);
-            modelInstance.setClassName(this.className);
+            createClass(this.state.className, this.state.description);
         }
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -63,6 +65,18 @@ class NewClass extends React.Component {
         }
         this.setState({ classvalidated: true });
       }
+
+    handleClassNameChange(event) {
+        this.setState({
+            className: event.target.value
+        });
+    }
+
+    handleDescriptionChange(event) {
+        this.setState({
+            description: event.target.value
+        })
+    }
   
     render() {
         const { studentvalidated } = this.state;
@@ -91,7 +105,10 @@ class NewClass extends React.Component {
                                     <Form.Control
                                     required
                                     type="text"
+                                    // ref="class_name"
                                     placeholder="Enter class name"
+                                    value={this.state.className}
+                                    onChange={this.handleClassNameChange}
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
@@ -110,7 +127,10 @@ class NewClass extends React.Component {
                                     <Form.Control
                                     required
                                     type="text"
+                                    ref="class_description"
                                     placeholder="Enter class description"
+                                    value={this.state.description}
+                                    onChange={this.handleDescriptionChange}
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>

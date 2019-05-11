@@ -2,10 +2,19 @@ import React, { Component } from "react";
 import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
+
+
+import Icon from '@material-ui/core/Icon';
+
+//import SaveButtonComponent from "./components/SaveButtonComponent";
+
+// import SaveButton from '../components/SaveButtonComponent';
+// import CancelButton from '../components/CancelButtonComponent';
 import CrossComponent from "../components/CrossComponent";
+
 import modelInstance from "../data/DataModel";
-import NewClass from "../NewClass/NewClass";
 import { CardGroup, Container } from "mdbreact";
+
 
 //these need to be deleted and replaced with an API call to class images
 //in DataModel.js
@@ -20,57 +29,87 @@ import classImage10B from "../images/10B.jpg"
 
 class ClassImage extends React.Component {
     render() {
-      const { image } = this.props;
-      var style = {
-        backgroundImage: 'url(' + image + ')',
-      };
-      return (
-               <header style={style} id={image} className="class-image" />
-      )
+        const { image } = this.props;
+        var style = {
+            backgroundImage: 'url(' + image + ')',
+        };
+        return (
+            <header style={style} id={image} className="class-image" />
+        )
     }
 }
 
 class ClassName extends React.Component {
     render() {
-      
-    return (
-        <div className="class-name">
-            <h2>{this.props.title}</h2>
-        </div>
-    )
+
+        return (
+            <div className="class-name">
+                <h2>{this.props.title}</h2>
+            </div>
+        )
     }
 }
 
 class YourClasses extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: 'INITIAL',
+            teachersClasses: []
+        }
+    }
 
-     componentDidMount(){
-    //     modelInstance.getClassNames().then(cards => {
-    //         this.setState( {
-    //             status: 'SUCCESS'
-    //         })
-    //         console.log("result", cards)
-    //     }).catch(()=>{
-    //         this.setState( {
-    //             status: 'ERROR'
-    //         })
-    //     })
 
-    }  
-   
+    componentDidMount(){
+
+
+        modelInstance.getClassNames(1).then(result => {
+
+            this.setState( {
+                status: 'SUCCESS',
+                teachersClasses: result.classes
+            })
+            console.log("result testing API", this.state.teachersClasses)
+
+        }).catch(()=>{
+            this.setState( {
+                status: 'ERROR'
+            })
+            console.log("status", this.state.status);
+        })
+    }
+    // componentDidMount(){
+    //
+    //
+    //         modelInstance.getClassNames(1).then(result => {
+    //
+    //             this.setState( {
+    //                 status: 'SUCCESS',
+    //                 teachersClasses: result.classes
+    //             })
+    //             console.log("result testing API", this.state.teachersClasses)
+    //
+    //         }).catch(()=>{
+    //             this.setState( {
+    //                 status: 'ERROR'
+    //             })
+    //             console.log("status", this.state.status);
+    //         })
+    // }
+
 
     render() {
         // let SaveBtn = SaveButton();
         // let CancelBtn = CancelButton();
         let classImages = [classImage10A , classImage9B,classImage8A ,classImage7C, classImage10B ];
-    
-        let i = 0;
-        let studentClassNames = modelInstance.getClassNames().map((studentClass) =>
-            <div id="studentClass"  key={studentClass} className="card">
-                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                        <ClassName title={"Class "+ studentClass} />
-                        <ClassImage image={classImages[i++]}/>
 
+        let i = 0;
+        let studentClassNames = this.state.teachersClasses.map((studentClass) =>
+            <div id="studentClass"  key={studentClass.name} className="card">
+                <Link to={{pathname: '/ClassOverview/'+ studentClass.name}}>
+                    <ClassName title={"Class "+ studentClass.name} />
+                    <ClassImage image={classImages[i++]}/>
                 </Link>
             </div>
         )
@@ -79,7 +118,7 @@ class YourClasses extends Component {
             <div className="YourClasses">
                 <Container >
                     <div className="titleContainer">
-                          <h1> MY CLASSES</h1>
+                        <h1> MY CLASSES</h1>
                     </div>
                 </Container>
                 <Container className="classesContainer">
@@ -94,15 +133,8 @@ class YourClasses extends Component {
                                 </div>
                             </Link>
                         </div>
-                    
                     </Row>
-
                 </Container>
-                {/* <Row>
-                    {CancelBtn}
-                    {SaveBtn}
-                </Row> */}
-
             </div>
 
 
