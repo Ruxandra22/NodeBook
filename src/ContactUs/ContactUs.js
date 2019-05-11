@@ -30,7 +30,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Neza</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-									UX & Front-End
+									UX & Frontend Developer
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -45,7 +45,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Kata</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-									UX & Front-End
+									UX & Frontend Developer
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -60,7 +60,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Ruxi</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-									 Front-End developer
+									 Frontend Developer
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -75,7 +75,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Talha</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Security
+										Security Software Developer
 									</p>	
 								</MDBCardBody>
 							</MDBCard>
@@ -92,7 +92,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Tim</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Marketing
+										Marketing Specialist
 									</p>
 								</MDBCardBody>
 							</MDBCard>
@@ -122,7 +122,7 @@ class ContactUs extends Component {
 									<h4 className="font-weight-bold mb-4">Ariel</h4>
 									<hr />
 									<p className="dark-grey-text mt-4">
-										Back-End
+										Backend Developer
 									</p>
 								</MDBCardBody>
 							</MDBCard>
