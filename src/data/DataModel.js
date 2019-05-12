@@ -8,14 +8,16 @@ class DataModel {
   }
 
 
-// Questionnaires
+  resetDatabase() {
+    const url = `${BASE_URL}/api/reset`;
+    return fetch(url).then(this.processResponse);
+  }
 
   setCategory(category){
   }
 
   getCategories(teacherId){
     const url = `${BASE_URL}/api/teacher/list_categories/` + teacherId;
-    console.log("inside getCategories");
     return fetch(url).then(this.processResponse);
   }
 
@@ -29,9 +31,6 @@ class DataModel {
     const url = `${BASE_URL}api/teacher/get_experiments/` + classID;
     return fetch(url).then(this.processResponse);
   }
-
-
-
 
   setClassImage(classImageName){
   }

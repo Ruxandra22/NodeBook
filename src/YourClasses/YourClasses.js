@@ -51,18 +51,27 @@ class YourClasses extends Component {
 
     componentDidMount(){
 
-            modelInstance.getClassNames(1).then(result => {
-                this.setState( {
-                    status: 'SUCCESS',
-                    teachersClasses: result.classes
-                })
-                console.log("result testing API", this.state.teachersClasses)
-            }).catch(()=>{
-                this.setState( {
-                    status: 'ERROR'
-                })
-                console.log("status", this.state.status);
+        modelInstance.getClassNames(1).then(result => {
+            this.setState( {
+                status: 'SUCCESS',
+                teachersClasses: result.classes
             })
+            console.log("result testing API", this.state.teachersClasses)
+        }).catch(()=>{
+            this.setState( {
+                status: 'ERROR'
+            })
+            console.log("status", this.state.status);
+        })
+
+        /****************************************
+         *  UNCOMMENT THIS TO RESET THE DATABASE *
+         ****************************************/
+        // modelInstance.resetDatabase().then(result => {
+        //     console.log("The database was reset successfully!");
+        // }).catch(()=>{
+        //     console.log("Error is resetting the database!");
+        // })
     }
 
 
