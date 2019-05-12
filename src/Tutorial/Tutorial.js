@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Container} from "mdbreact";
 import './Tutorial.css';
+import tutorialVideo from '../videos/Tutorial.mp4';
 
 class Tutorial extends Component {
 
@@ -14,13 +15,13 @@ class Tutorial extends Component {
 					</div>
 				</Container>
 				<div className="row">
-					<div className="col-md-4"></div>
+					<div className="col-md-2"></div>
 					<div className="col-md-8">
-						<div className="span6">
-							<video className="tutorial_video" width="400" controls autoPlay="true" loop="true">
-								<source src="https://media.giphy.com/media/MOWPkhRAUbR7i/giphy.mp4" type="video/mp4"/>
+						{/*<div className="span6">*/}
+							<video className="tutorial_video" width="1000" controls autoPlay="true" loop="true">
+								<source src={tutorialVideo}/>
 							</video>
-						</div>
+						{/*</div>*/}
 					</div>
 				</div>
 			</div>
