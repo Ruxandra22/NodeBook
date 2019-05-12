@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse, MDBContainer,
-    MDBHamburgerToggler, MDBNavbarToggler, NavbarNav
+    MDBNavbar, MDBNavbarNav, MDBNavItem, MDBCollapse,
+    MDBNavbarToggler
 } from 'mdbreact';
 import Link from "react-router-dom/es/Link";
 import logo from "../images/transparent_NodeBook.PNG";
@@ -9,18 +9,6 @@ import login_icon from "../images/user_login.png";
 import "./Menu.css";
 
 class Menu extends Component {
-    // state = {
-    //     collapse: false,
-    //     collapseID: ''
-    // }
-    //
-    // toggleSingleCollapse = collapseId => {
-    //     this.setState({
-    //         ...this.state,
-    //         [collapseId]: !this.state[collapseId]
-    //     });
-    //     console.log(this.state[collapseId]);
-    // }
 
     state = {
         collapseID: ''

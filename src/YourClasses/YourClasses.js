@@ -68,7 +68,7 @@ class YourClasses extends Component {
          *  UNCOMMENT THIS TO RESET THE DATABASE *
          ****************************************/
         // modelInstance.resetDatabase().then(result => {
-        //     console.log("The database was reset successfully!");
+        //     console.log("The database was successfully reset !");
         // }).catch(()=>{
         //     console.log("Error is resetting the database!");
         // })

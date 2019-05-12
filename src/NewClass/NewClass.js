@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
-import { createClass } from '../data/DataModel';
+import modelInstance from '../data/DataModel';
 import {Link} from "react-router-dom";
 import Redirect from "react-router-dom/es/Redirect";
 import CrossComponent from "../components/CrossComponent";
@@ -23,12 +23,16 @@ class NewClass extends React.Component {
         this.handleClose = this.handleClose.bind(this);
         this.handleClassNameChange = this.handleClassNameChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+        this.handleTeacherChange = this.handleTeacherChange.bind(this);
+        this.checkInput = this.checkInput.bind(this);
+
 
         this.state = {
             show: false,
             newStudent: '',
             className: '',
             description: '',
+            teacher: '',
             studentvalidated: false,
             classvalidated: false,
         };
@@ -59,10 +63,10 @@ class NewClass extends React.Component {
     handleClassSubmit(event) {
         this.setState({ show: true });
         event.preventDefault();
-        console.log("submitting the new class");
         const form = event.currentTarget;
         if (form.checkValidity() === true) {
-            createClass(this.state.className, this.state.description);
+            console.log("submit");
+            modelInstance.createClass(this.state.className, this.state.description);
         }
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -82,6 +86,19 @@ class NewClass extends React.Component {
         this.setState({
             description: event.target.value
         })
+    }
+
+    handleTeacherChange(event) {
+        this.setState({
+            teacher: event.target.value
+        })
+    }
+
+    checkInput() {
+        if(this.state.teacher === '' || this.state.className === '' || this.state.description === '') {
+            return true;
+        }
+        return false;
     }
 
     render() {
@@ -143,15 +160,20 @@ class NewClass extends React.Component {
                                     type="text"
                                     ref="teachers"
                                     placeholder="Enter the teachers"
+                                    value={this.state.teacher}
+                                    onChange={this.handleTeacherChange}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                         </Col>
                         <Col sm={4}>
-                            <Button size="sm" variant="secondary" href="/YourClasses">
+                            <button className="btn btn-primary_red" size="sm" href="/YourClasses">
                                 Cancel
-                            </Button>
-                            <Button size="sm" variant="primary" type="Submit">Save</Button>
+                            </button>
+                            <button
+                                className="btn btn-primary_blue" size="sm" type="Submit" disabled={this.checkInput()}>
+                                Save
+                            </button>
                         </Col>
                     </Row>
                 </Container>
@@ -169,12 +191,20 @@ class NewClass extends React.Component {
                                 <QRCode value="http://facebook.github.io/react/" />
                             </Col>
                         </Row>
+                        <br/>
+                        <br/>
                         <Row>
-                            <Col sm={8}/>
+                            <Col sm={8}>
+                                <Link to="/yourClasses">
+                                    <button className="btn btn-secondary_yellow">
+                                        Go to your classes
+                                    </button>
+                                </Link>
+                            </Col>
                             <Col sm={4}>
-                                <Button variant="secondary" onClick={this.handleClose}>
+                                <button className="btn btn-primary_red" onClick={this.handleClose}>
                                     Close
-                                </Button>
+                                </button>
                             </Col>
                         </Row>
                     </Modal.Body>

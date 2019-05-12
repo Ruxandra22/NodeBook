@@ -48,6 +48,26 @@ class DataModel {
     return fetch(url).then(this.processResponse);
   }
 
+  createClass(className, description) {
+    // for now, the teacher ID is hardcoded
+    // will be changed after the authentication feature
+    console.log("creating a new class");
+    let teacherID = 1;
+    const url = `${BASE_URL}api/teacher/create_class/` + teacherID;
+    return fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: className,
+        description: description,
+      })
+    }).then(res => {
+      return res;
+    }).catch(err => err);
+  }
 
   processResponse(response) {
     if (response.ok) {
@@ -60,23 +80,3 @@ class DataModel {
 // Export an instance of DataModel
 const modelInstance = new DataModel();
 export default modelInstance;
-
-export function createClass(className, description) {
-  // for now, the teacher ID is hardcoded
-  // will be changed after the authentication feature
-  let teacherID = 1;
-  const url = `${BASE_URL}api/teacher/create_class/` + teacherID;
-  return fetch(url, {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: className,
-      description: description,
-    })
-  }).then(res => {
-    return res;
-  }).catch(err => err);
-}
