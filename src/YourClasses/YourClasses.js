@@ -2,19 +2,10 @@ import React, { Component } from "react";
 import './YourClasses.css';
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
-
-
-import Icon from '@material-ui/core/Icon';
-
-//import SaveButtonComponent from "./components/SaveButtonComponent";
-
-// import SaveButton from '../components/SaveButtonComponent';
-// import CancelButton from '../components/CancelButtonComponent';
 import CrossComponent from "../components/CrossComponent";
-
 import modelInstance from "../data/DataModel";
+import NewClass from "../NewClass/NewClass";
 import { CardGroup, Container } from "mdbreact";
-
 
 //these need to be deleted and replaced with an API call to class images
 //in DataModel.js
@@ -23,8 +14,6 @@ import classImage9B from "../images/9B.jpg"
 import classImage8A from "../images/8A.jpg"
 import classImage7C from "../images/7C.jpg"
 import classImage10B from "../images/10B.jpg"
-
-
 
 
 class ClassImage extends React.Component {
@@ -60,24 +49,29 @@ class YourClasses extends Component {
         }
     }
 
-
     componentDidMount(){
 
-     
-            modelInstance.getClassNames(1).then(result => {
-              
-                this.setState( {
-                    status: 'SUCCESS',
-                    teachersClasses: result.classes
-                })
-                console.log("result testing API", this.state.teachersClasses)
-             
-            }).catch(()=>{
-                this.setState( {
-                    status: 'ERROR'
-                })
-                console.log("status", this.state.status);
+        modelInstance.getClassNames(1).then(result => {
+            this.setState( {
+                status: 'SUCCESS',
+                teachersClasses: result.classes
             })
+            console.log("result testing API", this.state.teachersClasses)
+        }).catch(()=>{
+            this.setState( {
+                status: 'ERROR'
+            })
+            console.log("status", this.state.status);
+        })
+
+        /****************************************
+         *  UNCOMMENT THIS TO RESET THE DATABASE *
+         ****************************************/
+        // modelInstance.resetDatabase().then(result => {
+        //     console.log("The database was successfully reset !");
+        // }).catch(()=>{
+        //     console.log("Error is resetting the database!");
+        // })
     }
 
 
@@ -92,7 +86,6 @@ class YourClasses extends Component {
                 <Link to={{pathname: '/ClassOverview/'+ studentClass.name}}>
                     <ClassName title={"Class "+ studentClass.name} />
                     <ClassImage image={classImages[i++]}/>
-
                 </Link>
             </div>
         )
@@ -119,8 +112,6 @@ class YourClasses extends Component {
                     </Row>
                 </Container>
             </div>
-
-
         );
     }
 }

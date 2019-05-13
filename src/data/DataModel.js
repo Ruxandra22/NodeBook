@@ -8,53 +8,66 @@ class DataModel {
   }
 
 
-// Questionnaires
+  resetDatabase() {
+    const url = `${BASE_URL}/api/reset`;
+    return fetch(url).then(this.processResponse);
+  }
 
   setCategory(category){
   }
 
   getCategories(teacherId){
     const url = `${BASE_URL}/api/teacher/list_categories/` + teacherId;
-    console.log("inside getCategories");
     return fetch(url).then(this.processResponse);
-}
-
-
-
-// My Classes    
-  setClassName(className){
   }
 
-  getClassNames(teacherId){
-      const url = `${BASE_URL}api/teacher/get_classes/` + teacherId;
-      console.log("inside getClassNames");
-        return fetch(url).then(this.processResponse);
+
+  getClassNames(teacher_id){
+      const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
+      return fetch(url).then(this.processResponse);
+  }
+
+  getClassOverviewData(classID) {
+    const url = `${BASE_URL}api/teacher/get_experiments/` + classID;
+    return fetch(url).then(this.processResponse);
   }
 
   setClassImage(classImageName){
   }
 
-  getClassImages(){
+  getClassImages() {
     let start = ["test"];
     let classImages = this.getClassNames().map((name) =>
-         "../images/" + name + ".jpg"
-    )  
-    console.log("test map in datamodel", classImages);
+        "../images/" + name + ".jpg"
+    )
   }
 
-// Students
-
-getStudents(classID) {
-  const url = `${BASE_URL}api/teacher/get_students/` + classID;
-  console.log("getStudents");
-  return fetch(url).then(this.processResponse);
-}
   getStudents(classID) {
-    const url = `${BASE_URL}/api/teacher/get_students/` + classID;
+    const url = `${BASE_URL}api/teacher/get_students/` + classID;
     console.log("getStudents");
     return fetch(url).then(this.processResponse);
   }
 
+  createClass(className, description) {
+    // for now, the teacher ID is hardcoded
+    // will be changed after the authentication feature
+    console.log("creating a new class");
+    let teacherID = 1;
+    const url = `${BASE_URL}api/teacher/create_class/` + teacherID;
+    return fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: className,
+        description: description,
+      })
+    }).then(res => {
+      return res;
+    }).catch(err => err);
+  }
 
   processResponse(response) {
     if (response.ok) {

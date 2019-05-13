@@ -12,27 +12,6 @@ import modelInstance from '../data/DataModel';
 
 class NewQuestionnaire extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            status: 'INITIAL',
-        }
-    }
-
-    componentDidMount(){
-        modelInstance.getStudents("1").then(students => {
-            console.log(students);
-            this.setState({
-                status: 'LOADED',
-                // cards: cards.photos,
-                // theme: this.props.match.params.id
-            })
-        }).catch(() => {
-            this.setState({
-                status: 'ERROR'
-            })
-        })
-    }
     render() {
         let SaveBtn = SaveButton();
         let CancelBtn = CancelButton();

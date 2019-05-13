@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCollapse, MDBContainer,
-    MDBHamburgerToggler } from 'mdbreact';
+import {
+    MDBNavbar, MDBNavbarNav, MDBNavItem, MDBCollapse,
+    MDBNavbarToggler
+} from 'mdbreact';
 import Link from "react-router-dom/es/Link";
 import logo from "../images/transparent_NodeBook.PNG";
 import login_icon from "../images/user_login.png";
 import "./Menu.css";
-import NavContext from "react-bootstrap/es/NavContext";
-import Nav from "react-bootstrap/Nav";
-import {SideNav} from "react-sidenav";
 
 class Menu extends Component {
+
     state = {
-        collapse: false,
         collapseID: ''
     }
 
-    toggleSingleCollapse = collapseId => {
-        this.setState({
-            ...this.state,
-            [collapseId]: !this.state[collapseId]
-        });
+    toggleCollapse = collapseID => () => {
+        this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
     }
 
     render() {
 
         return (
-            <MDBNavbar color="white" style={{ marginTop: '0px'}} >
-                <MDBHamburgerToggler className="menuHamburger" id="menu" color="#000000" onClick={()=> this.toggleSingleCollapse('collapse')} />
+            <MDBNavbar color="white" light>
+                <MDBNavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
                 {/*<Link to="/">*/}
                     <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
                 {/*</Link>*/}
-                <MDBNavbarBrand>
+                {/*<MDBNavbarBrand>*/}
                     <Link to={{pathname: '/teacherProfile'}}>
-                             Teacher's Name
-                             <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
+                         Teacher's Name
+                         <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
                     </Link>
-                </MDBNavbarBrand>
-                <MDBCollapse className="w-25 p-3 menu_content" style="background-color: #eee;" isOpen={this.state.collapse} navbar>
-                    <MDBNavbarNav>
+                {/*</MDBNavbarBrand>*/}
+                <MDBCollapse  id="navbarCollapse" className="w-25 p-3 menu_content" isOpen={this.state.collapseID} navbar>
+                    <MDBNavbarNav onClick={this.toggleCollapse('navbarCollapse')} >
                         <MDBNavItem>
                             <Link to="/" className="home">Home</Link>
                         </MDBNavItem>
