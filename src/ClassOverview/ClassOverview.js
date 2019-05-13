@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import './ClassOverview.css';
 import Container from "react-bootstrap/Container";
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Row from 'react-bootstrap/Row'
+import Link from '@material-ui/core/Link';
 
 import { Network, Node, Edge } from 'react-vis-network';
 import Graph from "react-graph-vis";
@@ -101,6 +105,12 @@ const graph = {
     layout: {
       hierarchical: false
     },
+    fit:{
+      animation: { // -------------------> can be a boolean too!
+        duration: Number,
+        easingFunction: String
+      }
+    },
     edges: {
       width: 3,
       length: 120
@@ -157,16 +167,32 @@ class ClassOverview extends Component {
 
       return (
   
-                  <div className="titleContainer">
+          <div className="classOverview">
+              <div className="titleContainer">
                       <h1> Class Overview {this.props.match.params.id}</h1>
-
-                        <Graph graph={graph} options={options} events={events} style={{ height: "475px" }} getNetwork={network => {
-                        //  if you want access to vis.js network api you can set the state in a parent component using this property
-                          }}/>
-
-                 
-
-                  </div>            
+              </div>   
+              <div className="results">
+                  <Row>      
+                        <Grid item xs={12} sm={9} md={9} lg={9} xl={9} >
+                            <Graph graph={graph} options={options} events={events} style={{ height: "750px" }} getNetwork={network => {
+                              //  if you want access to vis.js network api you can set the state in a parent component using this property
+                              }}/>
+                        </Grid>
+                        
+                        <Grid item xs={12} sm={3} md={3} lg={3} xl={3}>
+                            
+                            <div className="resultHistory">
+                              <Typography>
+                                      <Link href={"wherever"} color="inherit">
+                                            here the list of older results
+                                      </Link>
+                              </Typography> 
+                            </div>
+                        </Grid>
+                  </Row>
+              </div> 
+          </div>
+                       
 
       )
       document.getElementById("root")
