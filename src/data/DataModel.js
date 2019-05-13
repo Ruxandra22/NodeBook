@@ -1,4 +1,8 @@
 const BASE_URL = "http://redtachyon.eu.pythonanywhere.com/"; // THE URL TO GET THE API
+const httpOptions = {
+  headers: { "Authorization": "SKELETON_KEY"}
+};
+
 
 class DataModel {
 
@@ -10,7 +14,7 @@ class DataModel {
 
   resetDatabase() {
     const url = `${BASE_URL}/api/reset`;
-    return fetch(url).then(this.processResponse);
+    return fetch(url, httpOptions).then(this.processResponse);
   }
 
   setCategory(category){
@@ -18,18 +22,18 @@ class DataModel {
 
   getCategories(teacherId){
     const url = `${BASE_URL}/api/teacher/list_categories/` + teacherId;
-    return fetch(url).then(this.processResponse);
+    return fetch(url, httpOptions).then(this.processResponse);
   }
 
 
   getClassNames(teacher_id){
       const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
-      return fetch(url).then(this.processResponse);
+      return fetch(url, httpOptions).then(this.processResponse);
   }
 
   getClassOverviewData(classID) {
     const url = `${BASE_URL}api/teacher/get_experiments/` + classID;
-    return fetch(url).then(this.processResponse);
+    return fetch(url ,httpOptions).then(this.processResponse);
   }
 
   setClassImage(classImageName){
@@ -45,7 +49,7 @@ class DataModel {
   getStudents(classID) {
     const url = `${BASE_URL}api/teacher/get_students/` + classID;
     console.log("getStudents");
-    return fetch(url).then(this.processResponse);
+    return fetch(url,httpOptions).then(this.processResponse);
   }
 
   createClass(className, description) {
@@ -57,6 +61,7 @@ class DataModel {
     return fetch(url, {
       method: 'POST',
       headers: {
+        'Authorization': "SKELETON_KEY",
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },

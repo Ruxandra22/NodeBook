@@ -7,6 +7,8 @@ import Link from "react-router-dom/es/Link";
 import logo from "../images/transparent_NodeBook.PNG";
 import login_icon from "../images/user_login.png";
 import "./Menu.css";
+import Typography from '@material-ui/core/Typography';
+import Link2 from '@material-ui/core/Link';
 
 class Menu extends Component {
 
@@ -27,10 +29,19 @@ class Menu extends Component {
                     <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
                 {/*</Link>*/}
                 {/*<MDBNavbarBrand>*/}
-                    <Link to={{pathname: '/teacherProfile'}}>
+                <Typography>
+        
+                <Link2 href={"wherever"} color="inherit">
+                        Anna Lingren
+                         <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
+                </Link2>
+
+                    {/* 
+                    <Link to={{pathname: '/teacherProfile'} colour='inherit'}>
                          Teacher's Name
                          <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
-                    </Link>
+                    </Link> */}
+                </Typography>
                 {/*</MDBNavbarBrand>*/}
                 <MDBCollapse  id="navbarCollapse" className="w-25 p-3 menu_content" isOpen={this.state.collapseID} navbar>
                     <MDBNavbarNav onClick={this.toggleCollapse('navbarCollapse')} >
