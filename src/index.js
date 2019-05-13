@@ -6,7 +6,10 @@ import "./index.css";
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
+
+
 ReactDOM.render(
+
   <BrowserRouter>
     <App />
   </BrowserRouter>,
