@@ -1,4 +1,4 @@
-const BASE_URL = "http://redtachyon.eu.pythonanywhere.com/"; // THE URL TO GET THE API
+const BASE_URL = "https://redtachyon.eu.pythonanywhere.com/"; // THE URL TO GET THE API
 const httpOptions = {
   headers: { "Authorization": "SKELETON_KEY"}
 };
