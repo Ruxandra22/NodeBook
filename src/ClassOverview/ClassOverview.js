@@ -8,14 +8,28 @@ import { render } from "react-dom";
 
 
 
+function getColor() {
+    return "#" +  Math.random()
+    .toString(16)
+    .slice(2, 8)
+  }
+
 const graph = {
-    nodes: [
-      { id: 1, label: "Matilda", color: "#e04141" },
-      { id: 2, label: "Erik", color: "#e09c41" },
-      { id: 3, label: "Thomas", color: "#e0df41" },
-      { id: 4, label: "Rose", color: "#7be041" },
-      { id: 5, label: "Viola", color: "#41e0c9" },
-      { id: 6, label: "Rex", color: "#97e0c9" }
+    // nodes: [
+    //   { id: 1, label: "Matilda", color: "#e04141" },
+    //   { id: 2, label: "Erik", color: "#e09c41" },
+    //   { id: 3, label: "Thomas", color: "#e0df41" },
+    //   { id: 4, label: "Rose", color: "#7be041" },
+    //   { id: 5, label: "Viola", color: "#41e0c9" },
+    //   { id: 6, label: "Rex", color: "#97e0c9" }
+    // ],
+        nodes: [
+      { id: 1, label: "Matilda", color: getColor() },
+      { id: 2, label: "Erik", color: getColor()  },
+      { id: 3, label: "Thomas", color: getColor() },
+      { id: 4, label: "Rose", color: getColor() },
+      { id: 5, label: "Viola", color: getColor() },
+      { id: 6, label: "Rex", color: getColor() }
     ],
     edges: [{ from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 2, to: 5 }, { from: 2, to: 1 }, { from: 2, to: 3 }]
   };
