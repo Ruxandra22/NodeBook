@@ -2,16 +2,15 @@ import React from "react";
 import './NewClass.css';
 import QRCode from 'qrcode.react';
 import '../index.css';
+
 // Bootstrap components
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import modelInstance from '../data/DataModel';
 import {Link} from "react-router-dom";
-import Redirect from "react-router-dom/es/Redirect";
 import CrossComponent from "../components/CrossComponent";
 
 
@@ -208,8 +207,6 @@ class NewClass extends React.Component {
                             </Col>
                         </Row>
                     </Modal.Body>
-                    {/*<Modal.Footer>*/}
-                    {/*</Modal.Footer>*/}
                 </Modal>
             </div>
         );

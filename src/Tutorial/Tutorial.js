@@ -17,11 +17,9 @@ class Tutorial extends Component {
 				<div className="row">
 					<div className="col-md-2"></div>
 					<div className="col-md-8">
-						{/*<div className="span6">*/}
-							<video className="tutorial_video" width="1000" controls autoPlay="true" loop="true">
-								<source src={tutorialVideo}/>
-							</video>
-						{/*</div>*/}
+						<video className="tutorial_video" width="1000" controls autoPlay="true">
+							<source src={tutorialVideo}/>
+						</video>
 					</div>
 				</div>
 			</div>
