@@ -199,7 +199,7 @@ class ClassOverview extends Component {
           )
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // for now, the classID is hardcoded
         modelInstance.getClassOverviewData("1").then(result => {
             this.setState({
@@ -212,17 +212,6 @@ class ClassOverview extends Component {
                 status: 'ERROR'
             })
         });
-    }
-
-    render() {
-      return (
-          <Container >
-              <div className="titleContainer">
-                  <h1> Class Overview {this.props.match.params.id}</h1>
-              </div>
-          </Container>
-      )
-      // document.getElementById("root")
     }
 }
   
