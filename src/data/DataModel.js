@@ -53,8 +53,10 @@ class DataModel {
     return fetch(url,httpOptions).then(this.processResponse);
   }
 
-  getTeacher(teacherId){
-    
+  getQuestionnaireResults(experimentId){
+    const url = `${BASE_URL}api/teacher/replies_graph/` + experimentId;
+    console.log("getQuestionnaireResults");
+    return fetch(url,httpOptions).then(this.processResponse);
   }
 
   createClass(className, description) {

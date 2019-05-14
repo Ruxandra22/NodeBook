@@ -149,9 +149,30 @@ class ClassOverview extends Component {
             status: 'INITIAL',
             nodes: ["Kata", "Tim", "Talha", "Viktoria", "Ruxi", "Neza", "Ariel", "Stranger", "LonelyOne"],
             edges: ["Kata", "Tim", "Talha", "Viktoria", "Ruxi", "Neza", "Ariel", "Stranger", "LonelyOne"],
-            test: "Ruxi"
+            test: "Ruxi",
+            experimentId: 1,
+            questionnaireResults: []
         }
     }
+
+    componentDidMount(){
+
+      modelInstance.getQuestionnaireResults(this.state.experimentId).then(result => {
+        console.log("test get questionnaire results",result);
+      })
+    }
+      //     this.setState( {
+      //         status: 'SUCCESS',
+      //         categories: result.categories
+      //     })
+      //     console.log("test questionnaire results", this.state.categories)
+       
+      // }).catch(()=>{
+      //     this.setState( {
+      //         status: 'ERROR'
+      //     })
+      //     console.log("status", this.state.status);
+      
 
 
     render() {   
@@ -199,20 +220,21 @@ class ClassOverview extends Component {
           )
     }
 
-    componentDidMount() {
-        // for now, the classID is hardcoded
-        modelInstance.getClassOverviewData("1").then(result => {
-            this.setState({
-                status: 'LOADED',
-                experiments: result.experiments,
-            })
-            console.log(this.state.students);
-        }).catch(() => {
-            this.setState({
-                status: 'ERROR'
-            })
-        });
-    }
+    // VICTORIA'S STUFF?
+    // componentDidMount() {
+    //     // for now, the classID is hardcoded
+    //     modelInstance.getClassOverviewData("1").then(result => {
+    //         this.setState({
+    //             status: 'LOADED',
+    //             experiments: result.experiments,
+    //         })
+
+    //     }).catch(() => {
+    //         this.setState({
+    //             status: 'ERROR'
+    //         })
+    //     });
+    // }
 }
   
 
