@@ -31,7 +31,7 @@ class Menu extends Component {
                 {/*<MDBNavbarBrand>*/}
                 <Typography>
         
-                <Link2 href={"wherever"} color="inherit">
+                <Link2 href={"teacherProfile"} color="inherit">
                         Anna Lingren
                          <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
                 </Link2>

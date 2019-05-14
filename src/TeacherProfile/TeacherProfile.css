@@ -1,0 +1,28 @@
+.MyStory{
+    margin-top: 100px;
+    margin-left: -80px;
+}
+
+.ProfilePic{
+    margin-top: 110px;
+    margin-bottom: 25px;
+    margin-right: 10%;
+    margin-left: 15%;
+    width: 80%;
+
+}
+
+.teacherDescription{
+    margin-top: 200px;
+    margin-bottom: 25px;
+    /* margin-right: 50%; */
+    margin-right: 100px;
+    width: 80%;
+
+}
+
+.aboutMe{
+    margin-top: 60px;
+
+
+}

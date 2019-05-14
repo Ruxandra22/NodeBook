@@ -39,6 +39,7 @@ class DataModel {
   setClassImage(classImageName){
   }
 
+
   getClassImages() {
     let start = ["test"];
     let classImages = this.getClassNames().map((name) =>
@@ -50,6 +51,10 @@ class DataModel {
     const url = `${BASE_URL}api/teacher/get_students/` + classID;
     console.log("getStudents");
     return fetch(url,httpOptions).then(this.processResponse);
+  }
+
+  getTeacher(teacherId){
+    
   }
 
   createClass(className, description) {

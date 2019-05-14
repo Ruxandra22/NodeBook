@@ -14,13 +14,16 @@ class Tutorial extends Component {
 						<h1>TUTORIAL</h1>
 					</div>
 				</Container>
+				
 				<div className="row">
-					<div className="col-md-2"></div>
-					<div className="col-md-8">
-						<video className="tutorial_video" width="1000" controls autoPlay="true">
-							<source src={tutorialVideo}/>
-						</video>
-					</div>
+					<div className="col-md-3"></div>
+					{/* <div className="tutorial">	 */}
+							<div className="col-md-8">
+								<video className="tutorial_video" width="1000" controls autoPlay="true">
+									<source src={tutorialVideo}/>
+								</video>
+							</div>
+						{/* </div> */}
 				</div>
 			</div>
 		);

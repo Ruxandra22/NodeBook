@@ -85,7 +85,7 @@ const graph = {
         { from: 13, to: 17 }, 
         { from: 17, to: 20 }, 
         { from: 19, to: 18 }, 
-        { from: 18, to: null },
+        // { from: 18, to: null },
         {from: 8, to: 9},
         {from: 9, to: 8},
         {from: 10, to: 9},

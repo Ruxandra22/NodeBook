@@ -9,6 +9,12 @@ h1 {
 }
 
 .tutorial_video {
-    position: relative;
+    /* position: relative; */
     top: 50px;
+    margin-left: -87px;
+    margin-top: 70px;
+}
+
+.tutorial{
+
 }
