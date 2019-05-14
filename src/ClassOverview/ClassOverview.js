@@ -1,103 +1,16 @@
 import React, { Component } from "react";
 import './ClassOverview.css';
-import Container from "react-bootstrap/Container";
+//import Container from "react-bootstrap/Container";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Row from 'react-bootstrap/Row'
 import Link from '@material-ui/core/Link';
 
 import modelInstance from "../data/DataModel";
-import { Network, Node, Edge } from 'react-vis-network';
+//import { Network, Node, Edge } from 'react-vis-network';
 import Graph from "react-graph-vis";
-import { render } from "react-dom";
+//import { render } from "react-dom";
 
-
-
-
-function getColor() {
-    return "#" +  Math.random()
-    .toString(16)
-    .slice(2, 8)
-  }
-
-const graph = {
-    // nodes: [
-    //   { id: 1, label: "Matilda", color: "#e04141" },
-    //   { id: 2, label: "Erik", color: "#e09c41" },
-    //   { id: 3, label: "Thomas", color: "#e0df41" },
-    //   { id: 4, label: "Rose", color: "#7be041" },
-    //   { id: 5, label: "Viola", color: "#41e0c9" },
-    //   { id: 6, label: "Rex", color: "#97e0e9" }
-    // ],
-
-    nodes: [
-
-      { id: 0, label: "Matilda" , group: 0},
-
-      {id: 1, label: "Kata", group: 1, shape: 'circularImage', image: require("../images/KataG.png" )},
-      {id: 2, label: "Ruxi", group: 2, shape: 'circularImage', image: require("../images/RuxiG.png" )},
-      {id: 3, label: "Talha", group: 3,shape: 'circularImage', image: require("../images/TalhaG.png" )},
-      {id: 4, label: "Tim", group: 4, shape: 'circularImage', image: require("../images/TimG.png" )},
-      {id: 5, label: "Victoria", group: 5, shape: 'circularImage', image: require("../images/VictoriaG.png" )},
-      {id: 6, label: "Neza", group: 6, shape: 'circularImage', image: require("../images/NezaG.png" )},
-      {id: 7, label: "Ariel", group: 7, shape: 'circularImage', image: require("../images/ArielG.png" )},
-
-     
-      { id: 8, label: "Erik" , group: 8},
-      { id: 9, label: "Thomas" , group:9},
-      { id: 10, label: "Rose", group:10},
-      { id: 11, label: "Viola" , group:11},
-      { id: 12, label: "Rex" , group:12},
-      { id: 13 , label: "Ted" , group:13} , 
-      {id: 14, label: "Joanna", group: 14},
-      {id: 15, label: "Alex", group: 15},
-      {id: 16, label: "Tom", group: 16},
-      {id: 17, label: "Erik", group: 17},
-      {id: 18, label: "Emma", group: 18},
-      {id: 19, label: "Kate", group: 19},
-      {id: 20, label: "Ross", group: 20}
-    ],
-
-    edges: [
-
-      {from: 1, to: 2 },
-        {from: 1, to: 3 },
-        {from: 1, to: 4 },
-        {from: 2, to: 5 },
-        {from: 2, to: 6 },
-        {from: 2, to: 7 },
-        {from: 3, to: 1 },
-        {from: 3, to: 2 },
-        {from: 3, to: 3 },
-        {from: 4, to: 3 },
-        {from: 4, to: 5 },
-        {from: 4, to: 6 },
-        {from: 5, to: 4 },
-        {from: 5, to: 6 },
-        {from: 6, to: 7 },
-        {from: 6, to: 1 },
-        {from: 7, to: 2 },
-        {from: 7, to: 3 },
-        {from: 7, to: 4 },
-
-        { from: 0, to: 8 }, 
-        { from: 8, to: 0 }, 
-        { from: 13, to: 17 }, 
-        { from: 17, to: 20 }, 
-        { from: 19, to: 18 }, 
-        // { from: 18, to: null },
-        {from: 8, to: 9},
-        {from: 9, to: 8},
-        {from: 10, to: 9},
-        {from: 11, to: 12},
-        {from: 12, to: 11},
-        {from: 13, to: 14},
-        {from: 13, to: 8},
-        {from: 14, to: 9},
-        {from: 14, to: 8}
-    ]
-  };
-  
   const options = {
     
     autoResize: true,
@@ -147,9 +60,9 @@ class ClassOverview extends Component {
         super(props);
         this.state = {
             status: 'INITIAL',
-            nodes: ["Kata", "Tim", "Talha", "Viktoria", "Ruxi", "Neza", "Ariel", "Stranger", "LonelyOne"],
-            edges: ["Kata", "Tim", "Talha", "Viktoria", "Ruxi", "Neza", "Ariel", "Stranger", "LonelyOne"],
-            test: "Ruxi",
+            nodes: [],
+            edges:[],
+            questionText: "",
             experimentId: 1,
             questionnaireResults: []
         }
@@ -159,39 +72,64 @@ class ClassOverview extends Component {
 
       modelInstance.getQuestionnaireResults(this.state.experimentId).then(result => {
         console.log("test get questionnaire results",result);
-      })
-    }
-      //     this.setState( {
-      //         status: 'SUCCESS',
-      //         categories: result.categories
-      //     })
-      //     console.log("test questionnaire results", this.state.categories)
+            this.setState( {
+              status: 'SUCCESS',
+              questionnaireResults: result,
+              nodes: result.nodes,
+              edges: result.questions[0].edges,
+              questionText: result.questions[0].text,     
+          })
+          // console.log("test questionnaire this.state.questionnaireResults", this.state.questionnaireResults)
+          // console.log("test nodes", this.state.nodes)
+          // console.log("test edges", this.state.edges)
+          // console.log("test question text: ", this.state.questionText)
+
+        //load the graph with data from database
+
+        // graph.nodes = this.state.nodes;
+        // graph.edges = this.state.edges;
+  
+
        
-      // }).catch(()=>{
-      //     this.setState( {
-      //         status: 'ERROR'
-      //     })
-      //     console.log("status", this.state.status);
+      }).catch(()=>{
+          this.setState( {
+              status: 'ERROR'
+          })
+          console.log("status", this.state.status);
+      })
+
+
+    }
+      
       
 
 
     render() {   
 
-        let i = 0;
-        let Nodes = this.state.nodes.map((node) =>
-             <Node id={i++} label={node} />
-        )
-
-        //work in progress
-        let Edges = this.state.edges.map((edge) =>
-                 <Edge id={i++} from={edge} to={this.state.test} />
-        )
+       //load API questionnaire results to the graph
+        let graph = {nodes: this.state.nodes, edges: this.state.edges};
+      //hard code load our results
+        let imgs = [
+          require("../images/ArielG.png"), 
+          require("../images/RuxiG.png"), 
+          require("../images/KataG.png") ,
+          require("../images/VictoriaG.png"),
+          require("../images/NezaG.png"),
+          require("../images/TimG.png"),
+          require( "../images/TalhaG.png")];
+        for(let i=0; i<7;i++ ){
+          if(graph.nodes[i] != null){
+             graph.nodes[i].shape = 'circularImage';
+             graph.nodes[i].image = imgs[i];
+          }
+        }
 
       return (
   
           <div className="classOverview">
               <div className="titleContainer">
-                      <h1> Class Overview {this.props.match.params.id}</h1>
+                      <h1> Class Overview {this.props.match.params.id}</h1>      
+                        <h5> {this.state.questionText} </h5>
               </div>
      
               <div className="results">
