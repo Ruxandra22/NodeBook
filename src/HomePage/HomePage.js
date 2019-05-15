@@ -1,97 +1,100 @@
 import React, { Component } from "react";
-import "./HomePage.css";
-import classImage from "../images/classroom.png";
-import Container from "react-bootstrap/Container";
 import Link from "react-router-dom/es/Link";
+import Row from "react-bootstrap/Row";
+
+import "./HomePage.css";
+import modelInstance from "../data/DataModel";
+import {Container } from "mdbreact";
+import Grid from '@material-ui/core/Grid';
+import CrossComponent from "../components/CrossComponent";
+
+//these need to be deleted and replaced with an API call to images
+//in DataModel.js
+import atmosphere from "../images/atmosphere.png"
+import sociometrics from "../images/sociometrics.PNG"
+import learning from "../images/learning.PNG"
+import img4 from "../images/learning.PNG"
+
+// const styles = StyleSheet.create({
+//     stretch: {
+//       width: 50,
+//       height: 200
+//     }
+//   });
+
+class Image extends React.Component {
+    render() {
+      const { image } = this.props;
+      let style = {
+        backgroundImage: 'url(' + image + ')',
+        stretch: {
+            width: 10,
+            height: 10
+          }
+      };
+      return (
+          <header style={style} id={image} className="class-image2" />
+      )
+    }
+}
+
+class Name extends React.Component {
+    render() {
+      
+    return (
+        <div className="class-name">
+            <h2>{this.props.title}</h2>
+        </div>
+    )
+    }
+}
 
 class HomePage extends Component {
-  render() {
-    return (
-      <div className="Welcome">
-          <h1 className="home_title">Latest Results</h1>
-          <div uk-slideshow="true">
-              <ul className="uk-slideshow-items">
-                  <li>
-                      <Class1/>
-                  </li>
-                  <li>
-                      <Class2/>
-                  </li>
-                  <li>
-                      <Class3/>
-                  </li>
-              </ul>
-              <div className="uk-position-bottom-center uk-position-small">
-                  <ul className="uk-dotnav">
-                      <li uk-slideshow-item="0"><a href="#">Item 1</a></li>
-                      <li uk-slideshow-item="1"><a href="#">Item 2</a></li>
-                      <li uk-slideshow-item="2"><a href="#">Item 3</a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-    );
-  }
-}
-
-class Class1 extends Component {
-    render() {
-        let date = new Date().getDate(); //Current Date
-        let month = new Date().getMonth() + 1; //Current Month
-        let year = new Date().getFullYear(); //Current Year
-        let studentClass = "10A"
-        return (
-          <div className="class">
-              <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                  <Container className="card">
-                    <h1> Class {studentClass}
-                        <img src={classImage} alt="Class Photo" width="128px" height="80"/>
-                    </h1>
-                    {date}.{month}.{year}
-                  </Container>
-              </Link>
-          </div>
-        );
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: 'INITIAL',
+            teacherID: 1,
+        }
     }
+
+    componentDidMount(){
 }
 
-class Class2 extends Component {
-    render() {
-        let date = new Date().getDate(); //Current Date
-        let month = new Date().getMonth() + 1; //Current Month
-        let year = new Date().getFullYear(); //Current Year
-        let studentClass = "10B"
-        return (
-            <div className="class">
-                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                    <Container className="card">
-                        <h1> Class {studentClass}
-                            <img src={classImage} alt="Class Photo" width="128px" height="80"/>
-                        </h1>
-                        {date}.{month}.{year}
-                    </Container>
-                </Link>
-            </div>
-        );
-    }
-}
 
-class Class3 extends Component {
     render() {
-        let date = new Date().getDate(); //Current Date
-        let month = new Date().getMonth() + 1; //Current Month
-        let year = new Date().getFullYear(); //Current Year
-        let studentClass = "10C";
+        let shortCutImages = [learning , learning,learning,learning];
+        let shortCuts = ["Saved Questionnaires", "Create New Questionnaire", "My Classes","Create new class"];
+        let routingPath = ["Questionnaires","newQuestionnaire","yourClasses","newClass"];
+        let i = 0;
+        let j = 0;
+ 
+        let shortCutsElement = shortCuts.map((shortCut) =>
+                <div id="shortCut"  key={shortCut} className="card">
+                    <Link to={{pathname: '/' + routingPath[i++]}}>
+                            <Name title={shortCut} />
+                            <Image image={shortCutImages[j++]}/>
+                    </Link>
+                </div>
+        )
+       
+
         return (
-            <div className="class">
-                <Link to={{pathname: '/ClassOverview/'+ studentClass}}>
-                    <Container className="card">
-                        <h1> Class {studentClass}
-                            <img src={classImage} alt="Class Photo" width="128px" height="80"/>
-                        </h1>
-                        {date}.{month}.{year}
+            <div className="Questionnaires">
+
+                <Container >
+                    <div className="titleContainer">
+                          <h1> HOME </h1>
+                    </div>
                     </Container>
-                </Link>
+                <Container >
+                <div className="shortCutBox">
+                    <Row>
+                            {shortCutsElement}
+                    </Row>
+                </div>
+                </Container>
             </div>
         );
     }

@@ -1,21 +1,45 @@
-.home_title {
-    text-align: center;
-    margin-top:30px;
-}
 
-.class {
+.titleContainer{
     text-align: center;
-    position: relative;
-    top:5%;
-}
+    align-content: center;
+    margin-top: 7%;
+    margin-bottom: -30px;
+  }
 
-.card {
-    width: 50px;
-    height: 350px;
+  h1 {
+    font-family: Open Sans, Light;
+  }
+  
+  .card {
     display: block;
-    padding: 1% 2% 2% 2%;
-    margin-left: 5%;
-    margin-bottom: 5%;
-    box-shadow: 10px 5px 40px 20px darken(#341cac, 5%);
-    transition: .25s;
-}
+      padding: 2% 2% 2% 2%;
+      margin-left: 5%;
+      margin-bottom: 50px;
+      box-shadow: 8px 4px 30px 15px;
+      transition: .25s;
+    }
+
+    .shortCutBox{
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 70px;
+      }
+  
+    .classContainer{
+      margin-top: 10%;
+    }
+    
+    .class-image2 {
+      height: 250px;
+      width: 100%;
+      padding: 15px;
+      background-size:cover;
+      color:#fff;
+    }
+
+ 
+  
+  
+  
+  
+  
