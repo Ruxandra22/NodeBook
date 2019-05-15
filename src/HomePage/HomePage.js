@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
-
+import Col from 'react-bootstrap/Col'
 import "./HomePage.css";
 import modelInstance from "../data/DataModel";
 import {Container } from "mdbreact";
@@ -65,18 +65,20 @@ class HomePage extends Component {
 
     render() {
         let shortCutImages = [questionnaires, newQuestionnaire, myClasses, newClass];
-        let shortCuts = ["Saved Questionnaires", "Create New Questionnaire", "My Classes","Create new class"];
+        let shortCuts = ["Questionnaires", "New Questionnaire", "My Classes","Create New Class"];
         let routingPath = ["Questionnaires","newQuestionnaire","yourClasses","newClass"];
         let i = 0;
         let j = 0;
  
         let shortCutsElement = shortCuts.map((shortCut) =>
+        <Col sm="3">
                 <div id="shortCut"  key={shortCut} className="card">
                     <Link to={{pathname: '/' + routingPath[i++]}}>
                             <Name title={shortCut} />
                             <Image image={shortCutImages[j++]}/>
                     </Link>
                 </div>
+        </Col>
         )
        
 
@@ -88,13 +90,13 @@ class HomePage extends Component {
                           <h1> HOME </h1>
                     </div>
                     </Container>
-                <Container >
+                {/* <Container > */}
                 <div className="shortCutBox">
                     <Row>
                             {shortCutsElement}
                     </Row>
                 </div>
-                </Container>
+                {/* </Container> */}
             </div>
         );
     }
