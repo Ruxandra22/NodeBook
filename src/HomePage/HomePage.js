@@ -10,10 +10,10 @@ import CrossComponent from "../components/CrossComponent";
 
 //these need to be deleted and replaced with an API call to images
 //in DataModel.js
-import atmosphere from "../images/atmosphere.png"
-import sociometrics from "../images/sociometrics.PNG"
-import learning from "../images/learning.PNG"
-import img4 from "../images/learning.PNG"
+import questionnaires from "../images/questionnaires.png"
+import newQuestionnaire from "../images/new-questionnaire.png"
+import myClasses from "../images/my-classes.png"
+import newClass from "../images/new-class.png"
 
 // const styles = StyleSheet.create({
 //     stretch: {
@@ -64,7 +64,7 @@ class HomePage extends Component {
 
 
     render() {
-        let shortCutImages = [learning , learning,learning,learning];
+        let shortCutImages = [questionnaires, newQuestionnaire, myClasses, newClass];
         let shortCuts = ["Saved Questionnaires", "Create New Questionnaire", "My Classes","Create new class"];
         let routingPath = ["Questionnaires","newQuestionnaire","yourClasses","newClass"];
         let i = 0;
