@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import modelInstance from "../data/DataModel";
 import QuestionComponent from "../components/QuestionComponent";
-import SaveQuest from "../SaveQuest/SaveQuest";
 import './NewQuestionnaire.css';
 
 // Bootstrap components
@@ -23,14 +22,24 @@ class NewQuestionnaire extends Component {
         this.handleCloseAddQuestion = this.handleCloseAddQuestion.bind(this);
         this.handleShowSaveQuestionnaire = this.handleShowSaveQuestionnaire.bind(this);
         this.handleCloseSaveQuestionnaire = this.handleCloseSaveQuestionnaire.bind(this);
+        this.handleShowSendQuestionnaire = this.handleShowSendQuestionnaire.bind(this);
+        this.handleCloseSendQuestionnaire = this.handleCloseSendQuestionnaire.bind(this);
 
         this.state = {
+            status: "",
             questions: [],
+            questionForQuestionnaire: {
+                questions: [],
+                mins: [],
+                maxs: [],
+                type: []
+            },
             questionComponents: "",
             validated: "",
             validatedQuestionnaire: "",
             showAddQuestion: false,
             showSaveQuestionnaire: false,
+            showSendQuestionnaire: false,
             newQuestion: "",
             newQuestionType: "sociometric",
             newQuestionMin: "",
@@ -57,6 +66,14 @@ class NewQuestionnaire extends Component {
     handleShowSaveQuestionnaire() {
         this.setState({ showSaveQuestionnaire: true });
     };
+
+    handleShowSendQuestionnaire() {
+        this.setState({ showSendQuestionnaire: true, showSaveQuestionnaire: true });
+    };
+
+    handleCloseSendQuestionnaire() {
+        this.setState({ showSendQuestionnaire: false, showSaveQuestionnaire: false });
+    }
 
     // Handle form updates
     handleNewQuestionChange = (event) => {
@@ -96,12 +113,16 @@ class NewQuestionnaire extends Component {
                 "min": this.state.newQuestionMin,
                 "max": this.state.newQuestionMax
             });
+            // New format for questionnaire:
+            this.state.questionForQuestionnaire.questions.push(this.state.newQuestion);
+            this.state.questionForQuestionnaire.mins.push(this.state.newQuestionMin);
+            this.state.questionForQuestionnaire.maxs.push(this.state.newQuestionMax);
+            this.state.questionForQuestionnaire.type.push(this.state.newQuestionType);
             this.resetNewQuestionState();
         }
         console.log(JSON.stringify(this.state.questions));
         this.setQuestionComponents();
         if (form.checkValidity() === false) {
-            console.log("Cannot validate");
             event.preventDefault();
             event.stopPropagation();
         }
@@ -112,12 +133,15 @@ class NewQuestionnaire extends Component {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === true) {
-            console.log(this.state.questionnaireName);
-            console.log(this.state.questionnaireType);
+            let content = JSON.stringify(this.state.questionForQuestionnaire);
+            if (this.state.showSendQuestionnaire) {
+                modelInstance.postQuestionnaire(1, 1, 1, content);
+            } else {
+                modelInstance.postTemplate(1, this.state.questionnaireType, content);
+            }
             this.resetNewQuestionnaireState();
         }
         if (form.checkValidity() === false) {
-            console.log("Cannot validate");
             event.preventDefault();
             event.stopPropagation();
         }
@@ -149,8 +173,24 @@ class NewQuestionnaire extends Component {
     resetNewQuestionnaireState() {
         this.state.validatedQuestionnaire = "";
         this.state.showSaveQuestionnaire = false;
+        this.state.showSendQuestionnaire = false;
         this.state.questionnaireName = "";
-    }
+    };
+
+    componentDidMount() {
+        modelInstance.getCategories(this.state.teacherId).then(result => {
+            this.setState({
+                status: 'SUCCESS',
+                categories: result.categories
+            });
+            console.log("result testing API", this.state.categories);
+        }).catch(()=>{
+            this.setState( {
+                status: 'ERROR'
+            });
+            console.log("status", this.state.status);
+        });
+    };
 
     render() {
         return (
@@ -166,7 +206,10 @@ class NewQuestionnaire extends Component {
                         <Col></Col>
                         <Col></Col>
                         <Col>
-                            <Button variant="primary_blue">Send</Button>
+                            <Button
+                            variant="primary_blue"
+                            onClick={this.handleShowSendQuestionnaire}
+                            disabled={this.state.number === 0}>Send</Button>
                         </Col>
                     </Row>
                     <Row>
@@ -261,10 +304,15 @@ class NewQuestionnaire extends Component {
                 </Modal>
 
 
-                {/* Add a questionnaire */}
+                {/* Add a questionnaire or add and send a questionnaire */}
                 <Modal show={this.state.showSaveQuestionnaire} onHide={this.handleCloseSaveQuestionnaire}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Save Questionnaire</Modal.Title>
+                        {this.state.showSendQuestionnaire && 
+                            <Modal.Title>Send Questionnaire</Modal.Title>
+                        }
+                        {!this.state.showSendQuestionnaire &&
+                            <Modal.Title>Save Questionnaire</Modal.Title>
+                        }
                     </Modal.Header>
                     <Modal.Body>
                     <Form
@@ -296,7 +344,6 @@ class NewQuestionnaire extends Component {
                             </Form.Control>
                             <Form.Control.Feedback type="invalid">Missing questionnaire type!</Form.Control.Feedback>
                         </Form.Group>
-
                         <Button variant="primary_blue" type="submit">Submit</Button>
                     </Form>
                     </Modal.Body>
