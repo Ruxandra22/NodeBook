@@ -41,3 +41,11 @@
 .contact_us {
     color: #5E94B0;
 }
+
+
+.link {
+    color: #000;
+  }
+  .link:hover {
+     color: #5E94B0;
+  }

@@ -31,10 +31,12 @@ class Menu extends Component {
                 {/*<MDBNavbarBrand>*/}
                 <Typography>
         
-                <Link2 href={"teacherProfile"} color="inherit">
+                {/* <Link2 href={"teacherProfile"} color="inherit"> */}
+                <Link to="/teacherProfile" className="link">
                         Anna Lingren
                          <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
-                </Link2>
+                </Link>
+                {/* </Link2> */}
 
                     {/* 
                     <Link to={{pathname: '/teacherProfile'} colour='inherit'}>
