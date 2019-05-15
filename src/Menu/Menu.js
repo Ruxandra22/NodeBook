@@ -9,6 +9,7 @@ import login_icon from "../images/user_login.png";
 import "./Menu.css";
 import Typography from '@material-ui/core/Typography';
 import Link2 from '@material-ui/core/Link';
+import TeacherProfile from '../TeacherProfile/TeacherProfile';
 
 class Menu extends Component {
 
@@ -34,7 +35,8 @@ class Menu extends Component {
                 {/* <Link2 href={"teacherProfile"} color="inherit"> */}
                 <Link to="/teacherProfile" className="link">
                         Anna Lingren
-                         <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
+                         {/* <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/> */}
+                         <img className="login-icon" src={require("../images/teacher.png")} alt={"Login Icon"} width="38px" height="38px"/>
                 </Link>
                 {/* </Link2> */}
 
