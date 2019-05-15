@@ -1,4 +1,4 @@
-const BASE_URL = "https://redtachyon.eu.pythonanywhere.com/"; // THE URL TO GET THE API
+const BASE_URL = "https://redtachyon.eu.pythonanywhere.com"; // THE URL TO GET THE API
 const httpOptions = {
   headers: { "Authorization": "SKELETON_KEY"}
 };
@@ -23,6 +23,42 @@ class DataModel {
   getCategories(teacherId){
     const url = `${BASE_URL}/api/teacher/list_categories/` + teacherId;
     return fetch(url, httpOptions).then(this.processResponse);
+  }
+
+  postQuestionnaire(teacherId, classId, studentId, content) {
+    const url = `${BASE_URL}/api/teacher/create_experiment/` + classId + `/` + studentId;
+    console.log("Posting a questionnaire to class...");
+    console.log(content)
+    // /api/teacher/create_experiment/<class_id>/<student_id></student_id>
+    return fetch(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': "SKELETON_KEY",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: content
+    }).then(res => {
+      return res;
+    }).catch(err => err);
+  }
+
+  postTemplate(teacherId, categoryId, content) {
+    const url = `${BASE_URL}/api/teacher/save_template/` + categoryId;
+    console.log("Posting a template...");
+    console.log(content);
+    // /api/teacher/save_template/<category_id>
+    return fetch(url, {
+    method: 'POST',
+    headers: {
+    'Authorization': "SKELETON_KEY",
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    },
+    body: content
+    }).then(res => {
+    return res;
+    }).catch(err => err);
   }
 
 
