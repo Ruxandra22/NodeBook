@@ -63,12 +63,12 @@ class DataModel {
 
 
   getClassNames(teacher_id){
-      const url = `${BASE_URL}api/teacher/get_classes/` + teacher_id;
+      const url = `${BASE_URL}/api/teacher/get_classes/` + teacher_id;
       return fetch(url, httpOptions).then(this.processResponse);
   }
 
   getClassOverviewData(classID) {
-    const url = `${BASE_URL}api/teacher/get_experiments/` + classID;
+    const url = `${BASE_URL}/api/teacher/get_experiments/` + classID;
     return fetch(url ,httpOptions).then(this.processResponse);
   }
 
@@ -84,13 +84,13 @@ class DataModel {
   }
 
   getStudents(classID) {
-    const url = `${BASE_URL}api/teacher/get_students/` + classID;
+    const url = `${BASE_URL}/api/teacher/get_students/` + classID;
     console.log("getStudents");
     return fetch(url,httpOptions).then(this.processResponse);
   }
 
   getQuestionnaireResults(experimentId){
-    const url = `${BASE_URL}api/teacher/replies_graph/` + experimentId;
+    const url = `${BASE_URL}/api/teacher/replies_graph/` + experimentId;
     console.log("getQuestionnaireResults");
     return fetch(url,httpOptions).then(this.processResponse);
   }
@@ -100,7 +100,7 @@ class DataModel {
     // will be changed after the authentication feature
     console.log("creating a new class");
     let teacherID = 1;
-    const url = `${BASE_URL}api/teacher/create_class/` + teacherID;
+    const url = `${BASE_URL}/api/teacher/create_class/` + teacherID;
     return fetch(url, {
       method: 'POST',
       headers: {

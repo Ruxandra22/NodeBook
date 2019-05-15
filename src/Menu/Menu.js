@@ -26,10 +26,11 @@ class Menu extends Component {
         return (
             <MDBNavbar color="white" light>
                 <MDBNavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
-                {/*<Link to="/">*/}
+     
+                {/* <Link to="/" className="home"> */}
                     <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
-                {/*</Link>*/}
-                {/*<MDBNavbarBrand>*/}
+                {/* </Link> */}
+
                 <Typography>
         
                 {/* <Link2 href={"teacherProfile"} color="inherit"> */}
@@ -46,7 +47,7 @@ class Menu extends Component {
                          <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
                     </Link> */}
                 </Typography>
-                {/*</MDBNavbarBrand>*/}
+                
                 <MDBCollapse  id="navbarCollapse" className="w-25 p-3 menu_content" isOpen={this.state.collapseID} navbar>
                     <MDBNavbarNav onClick={this.toggleCollapse('navbarCollapse')} >
                         <MDBNavItem>
