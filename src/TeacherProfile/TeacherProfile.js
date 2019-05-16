@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container'
 
 //material-ui
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
 
 class TeacherProfile extends Component {
@@ -29,12 +28,10 @@ class TeacherProfile extends Component {
 
                         <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
                             <div className="teacherDescription">
-                                <Typography class="aboutMe">
-                                    <h2> Anna Lingren</h2>
-                                    <hr></hr>
+                                <h2 className="aboutMe"> Anna Lingren</h2>
+                                <hr></hr>
                                 <p>I am a math and physics teacher.</p>
                                 <p>My mentor class is 11A.</p>
-                                </Typography>
                             </div>
                         </Grid>
 
