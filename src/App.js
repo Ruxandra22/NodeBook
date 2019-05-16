@@ -12,7 +12,6 @@ import ClassResults from "./ClassResults/ClassResults";
 import Menu from "./Menu/Menu";
 import ClassOverview from "./ClassOverview/ClassOverview";
 import TeacherProfile from "./TeacherProfile/TeacherProfile";
-import SaveQuest from "./SaveQuest/SaveQuest";
 import Tutorial from "./Tutorial/Tutorial";
 import ContactUs from "./ContactUs/ContactUs";
 
@@ -37,10 +36,6 @@ class App extends Component {
                 <Route
                 path="/newQuestionnaire"
                 render={() => <NewQuestionnaire model={modelInstance} />}
-                />
-                <Route
-                path="/saveQuestionnaire"
-                render={() => <SaveQuest model={modelInstance} />}
                 />
                 <Route
                 path="/yourClasses"
