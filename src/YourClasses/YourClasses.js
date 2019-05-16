@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './YourClasses.css';
-import Link from "react-router-dom/es/Link";
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import CrossComponent from "../components/CrossComponent";
 import modelInstance from "../data/DataModel";

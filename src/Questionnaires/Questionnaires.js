@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import Link from "react-router-dom/es/Link";
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 
 import './Questionnaires.css';

@@ -3,7 +3,7 @@ import {
     MDBNavbar, MDBNavbarNav, MDBNavItem, MDBCollapse,
     MDBNavbarToggler
 } from 'mdbreact';
-import Link from "react-router-dom/es/Link";
+import { Link } from "react-router-dom";
 import logo from "../images/transparent_NodeBook.PNG";
 import "./Menu.css";
 import Typography from '@material-ui/core/Typography';
