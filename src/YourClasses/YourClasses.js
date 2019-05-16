@@ -4,8 +4,7 @@ import Link from "react-router-dom/es/Link";
 import Row from "react-bootstrap/Row";
 import CrossComponent from "../components/CrossComponent";
 import modelInstance from "../data/DataModel";
-import NewClass from "../NewClass/NewClass";
-import { CardGroup, Container } from "mdbreact";
+import { Container } from "mdbreact";
 
 //these need to be deleted and replaced with an API call to class images
 //in DataModel.js
@@ -55,8 +54,8 @@ class YourClasses extends Component {
             this.setState( {
                 status: 'SUCCESS',
                 teachersClasses: result.classes
-            })
-            console.log("result testing API", this.state.teachersClasses)
+            });
+            console.log("result testing API", this.state.teachersClasses);
         }).catch(()=>{
             this.setState( {
                 status: 'ERROR'

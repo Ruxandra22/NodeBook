@@ -39,7 +39,7 @@ class TeacherProfile extends Component {
                         </Grid>
 
                         <Grid item xs={12} sm={4} md={3} lg={3} xl={3} >
-                            <img src={teacherPic} className="ProfilePic"/>
+                            <img src={teacherPic} alt="Teacher" className="ProfilePic"/>
                         </Grid>
                     </Row>
                 </Grid>
