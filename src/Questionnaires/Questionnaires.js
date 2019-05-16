@@ -17,29 +17,28 @@ import learning from "../images/learning.PNG"
 
 class Image extends React.Component {
     render() {
-      const { image } = this.props;
-      let style = {
-        backgroundImage: 'url(' + image + ')',
-      };
-      return (
-          <header style={style} id={image} className="class-image" />
-      )
+        const { image } = this.props;
+        let style = {
+            backgroundImage: 'url(' + image + ')',
+        };
+        return (
+            <header style={style} id={image} className="class-image" />
+        )
     }
 }
 
 class Name extends React.Component {
     render() {
-      
+
     return (
         <div className="class-name">
             <h2>{this.props.title}</h2>
-        </div>
-    )
+        </div>)
     }
 }
 
 class Questionnaires extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -49,20 +48,19 @@ class Questionnaires extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
 
         modelInstance.getCategories(this.state.teacherID).then(result => {
-          
             this.setState( {
                 status: 'SUCCESS',
                 categories: result.categories
-            })
-            console.log("result testing API", this.state.categories)
-         
+            });
+            console.log("result testing API", this.state.categories);
+
         }).catch(()=>{
             this.setState( {
                 status: 'ERROR'
-            })
+            });
             console.log("status", this.state.status);
         })
 }
@@ -80,11 +78,9 @@ class Questionnaires extends Component {
                     </Link>
                 </div>
         )
-       
 
         return (
             <div className="Questionnaires">
-
                 <Container >
                     <div className="titleContainer">
                           <h1> Questionnaires</h1>
@@ -95,10 +91,10 @@ class Questionnaires extends Component {
                         {categoriesElement}
                         <div id="category"  key={"newClass"} className="card">
                             <Link to={{pathname: '/newQuestionnaire'}}>
-                                    <Name title={"Create New Questionnaire"} />
-                                    <div className="moreButton">
-                                            {CrossComponent()}
-                                    </div>
+                                <Name title={"Create New Questionnaire"} />
+                                <div className="moreButton">
+                                    {CrossComponent()}
+                                </div>
                             </Link>
                         </div>
                     </Row>
@@ -107,4 +103,6 @@ class Questionnaires extends Component {
         );
     }
 }
+
+
 export default Questionnaires;

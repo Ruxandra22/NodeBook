@@ -25,6 +25,14 @@ class NewQuestionnaire extends Component {
         this.handleShowSendQuestionnaire = this.handleShowSendQuestionnaire.bind(this);
         this.handleCloseSendQuestionnaire = this.handleCloseSendQuestionnaire.bind(this);
 
+        this.handleNewQuestionChange = this.handleNewQuestionChange.bind(this);
+        this.handleNewQuestionTypeChange = this.handleNewQuestionTypeChange.bind(this);
+        this.handleNewQuestionMinChange = this.handleNewQuestionMinChange.bind(this);
+        this.handleNewQuestionMaxChange = this.handleNewQuestionMaxChange.bind(this);
+        this.handleQuestionnaireNameChange = this.handleQuestionnaireNameChange.bind(this);
+        this.handleQuestionnaireTypeChange = this.handleQuestionnaireTypeChange.bind(this);
+
+
         this.state = {
             status: "",
             questions: [],
@@ -105,7 +113,7 @@ class NewQuestionnaire extends Component {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === true) {
-            this.state.number += 1;
+            this.setState({number: this.state.number + 1});
             this.state.questions.push({
                 "text": this.state.newQuestion,
                 "question_no": this.state.number,
@@ -129,7 +137,7 @@ class NewQuestionnaire extends Component {
         this.setState({ validated: true });
       };
 
-      handleQuestionnaireSubmit(event) {
+    handleQuestionnaireSubmit(event) {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === true) {
@@ -146,35 +154,38 @@ class NewQuestionnaire extends Component {
             event.stopPropagation();
         }
         this.setState({ validatedQuestionnaire: true });
-      };
+    };
 
-      setQuestionComponents() {
-        this.state.questionComponents = this.state.questions.map((question) => 
-            <QuestionComponent as="{Col}"
-            key={question.question_no}
-            text={question.text}
-            question_no={question.question_no}
-            type={question.type}
-            min={question.min}
-            max={question.max}
-            />
-        )
-      };
+    setQuestionComponents() {
+        this.setState({
+            questionComponents: this.state.questions.map((question) => 
+                <QuestionComponent as="{Col}"
+                key={question.question_no}
+                text={question.text}
+                question_no={question.question_no}
+                type={question.type}
+                min={question.min}
+                max={question.max}/>)
+        });
+    };
 
     resetNewQuestionState() {
-        this.state.validated = "";
-        this.state.showAddQuestion = false;
-        this.state.newQuestion = "";
-        this.state.newQuestionMin = "";
-        this.state.newQuestionMax = "";
-        this.state.validated = "";
+        this.setState({
+            validated: "",
+            showAddQuestion: false,
+            newQuestion: "",
+            newQuestionMin: "",
+            newQuestionMax: "",
+        });
     };
 
     resetNewQuestionnaireState() {
-        this.state.validatedQuestionnaire = "";
-        this.state.showSaveQuestionnaire = false;
-        this.state.showSendQuestionnaire = false;
-        this.state.questionnaireName = "";
+        this.setState({
+            validatedQuestionnaire: "",
+            showSaveQuestionnaire: false,
+            showSendQuestionnaire: false,
+            questionnaireName: ""
+        });
     };
 
     componentDidMount() {

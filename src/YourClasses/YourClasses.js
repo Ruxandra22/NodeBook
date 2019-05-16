@@ -76,8 +76,6 @@ class YourClasses extends Component {
 
 
     render() {
-        // let SaveBtn = SaveButton();
-        // let CancelBtn = CancelButton();
         let classImages = [classImage10A , classImage9B,classImage8A ,classImage7C, classImage10B ];
 
         let i = 0;

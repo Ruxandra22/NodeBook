@@ -32,7 +32,6 @@ class NewClass extends React.Component {
             className: '',
             description: '',
             teacher: '',
-            studentvalidated: false,
             classvalidated: false,
         };
     }
@@ -44,20 +43,6 @@ class NewClass extends React.Component {
     handleShow() {
         this.setState({ show: true });
     }
-
-    // handleStudentSubmit(event) {
-    //     const form = event.currentTarget;
-    //     if (form.checkValidity() === true) {
-    //         console.log("Submitting new student");
-    //         console.log(this.newStudent);
-    //     }
-    //     if (form.checkValidity() === false) {
-    //         event.preventDefault();
-    //         event.stopPropagation();
-    //     }
-    //     this.setState({ studentvalidated: true });
-    //   }
-
 
     handleClassSubmit(event) {
         this.setState({ show: true });
@@ -73,7 +58,6 @@ class NewClass extends React.Component {
         }
         this.setState({ classvalidated: true });
       }
-
 
     handleClassNameChange(event) {
         this.setState({
@@ -94,14 +78,13 @@ class NewClass extends React.Component {
     }
 
     checkInput() {
-        if(this.state.teacher === '' || this.state.className === '' || this.state.description === '') {
+        if (this.state.teacher === '' || this.state.className === '' || this.state.description === '') {
             return true;
         }
         return false;
     }
 
     render() {
-        const { studentvalidated } = this.state;
         const { classvalidated } = this.state;
 
         return (

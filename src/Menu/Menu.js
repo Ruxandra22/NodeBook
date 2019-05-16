@@ -5,11 +5,8 @@ import {
 } from 'mdbreact';
 import Link from "react-router-dom/es/Link";
 import logo from "../images/transparent_NodeBook.PNG";
-import login_icon from "../images/user_login.png";
 import "./Menu.css";
 import Typography from '@material-ui/core/Typography';
-import Link2 from '@material-ui/core/Link';
-import TeacherProfile from '../TeacherProfile/TeacherProfile';
 
 class Menu extends Component {
 
@@ -26,28 +23,14 @@ class Menu extends Component {
         return (
             <MDBNavbar color="white" light>
                 <MDBNavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
-     
-                {/* <Link to="/" className="home"> */}
-                    <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
-                {/* </Link> */}
-
+                <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
                 <Typography>
-        
-                {/* <Link2 href={"teacherProfile"} color="inherit"> */}
-                <Link to="/teacherProfile" className="link">
+                    <Link to="/teacherProfile" className="link">
                         Anna Lingren
-                         {/* <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/> */}
-                         <img className="login-icon" src={require("../images/teacher.png")} alt={"Login Icon"} width="38px" height="38px"/>
-                </Link>
-                {/* </Link2> */}
-
-                    {/* 
-                    <Link to={{pathname: '/teacherProfile'} colour='inherit'}>
-                         Teacher's Name
-                         <img className="login-icon" src={login_icon} alt={"Login Icon"} width="38px" height="38px"/>
-                    </Link> */}
+                        <img className="login-icon" src={require("../images/teacher.png")} alt={"Login Icon"} width="38px" height="38px"/>
+                    </Link>
                 </Typography>
-                
+
                 <MDBCollapse  id="navbarCollapse" className="w-25 p-3 menu_content" isOpen={this.state.collapseID} navbar>
                     <MDBNavbarNav onClick={this.toggleCollapse('navbarCollapse')} >
                         <MDBNavItem>
