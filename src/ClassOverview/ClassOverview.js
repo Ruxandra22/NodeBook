@@ -107,8 +107,10 @@ class ClassOverview extends Component {
         return (
         <div className="classOverview">
             <div className="titleContainer">
-                <h1> Class Overview {this.props.match.params.id} </h1>
-                <h5> {this.state.questionText} </h5>
+                 <h1> {this.state.questionText} </h1>   
+                 <h5> Class Overview {this.props.match.params.id}  </h5>
+                {/* <h1> Class Overview {this.props.match.params.id} </h1> */}
+                {/* <h5> {this.state.questionText} </h5> */}
             </div>
             <div className="results">
                 <Row>
@@ -125,9 +127,12 @@ class ClassOverview extends Component {
                     <Grid item xs={12} sm={3} md={3} lg={3} xl={3}>
                         <div className="resultHistory">
                             <Typography>
-                                <Link href={"wherever"} color="inherit">
+                                {/* <Link href={"wherever"} color="inherit">
                                         here the list of older results
-                                </Link>
+                                </Link> */}
+                                <h4> Result history </h4>
+                                Here you can see your history of questionnaire results. 
+                                You have currently no past questionnaire results.
                             </Typography> 
                         </div>
                     </Grid>
