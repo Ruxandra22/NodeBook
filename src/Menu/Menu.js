@@ -43,7 +43,7 @@ class Menu extends Component {
                             <Link to="/YourClasses" className="my_classes">My Classes</Link>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <Link to="/Tutorial" className="tutorial">Tutorial</Link>
+                            <Link to="/Tutorial" className="tutorial">The Product</Link>
                         </MDBNavItem>
                         <MDBNavItem>
                             <Link to="/ContactUs" className="contact_us">Contact Us</Link>
