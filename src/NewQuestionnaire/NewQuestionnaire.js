@@ -31,10 +31,14 @@ class NewQuestionnaire extends Component {
         this.handleNewQuestionMaxChange = this.handleNewQuestionMaxChange.bind(this);
         this.handleQuestionnaireNameChange = this.handleQuestionnaireNameChange.bind(this);
         this.handleQuestionnaireTypeChange = this.handleQuestionnaireTypeChange.bind(this);
+        this.handleSendClassChange = this.handleSendClassChange.bind(this);
 
 
         this.state = {
             status: "",
+            teacherId: 1,
+            classes: "",
+            categories: [],
             questions: [],
             questionForQuestionnaire: {
                 questions: [],
@@ -53,7 +57,8 @@ class NewQuestionnaire extends Component {
             newQuestionMin: "",
             newQuestionMax: "",
             questionnaireName: "",
-            questionnaireType: "sociometric",
+            questionnaireType: "",
+            sendClass: "",
             number: 0,
         };
     }
@@ -108,6 +113,10 @@ class NewQuestionnaire extends Component {
         this.setState({questionnaireType: event.target.value});
     };
 
+    handleSendClassChange = (event) => {
+        this.setState({sendClass: event.target.value});
+    };
+
     // Handle submissions
     handleQuestionSubmit(event) {
         event.preventDefault();
@@ -128,7 +137,6 @@ class NewQuestionnaire extends Component {
             this.state.questionForQuestionnaire.type.push(this.state.newQuestionType);
             this.resetNewQuestionState();
         }
-        console.log(JSON.stringify(this.state.questions));
         this.setQuestionComponents();
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -143,9 +151,9 @@ class NewQuestionnaire extends Component {
         if (form.checkValidity() === true) {
             let content = JSON.stringify(this.state.questionForQuestionnaire);
             if (this.state.showSendQuestionnaire) {
-                modelInstance.postQuestionnaire(1, 1, 1, content);
+                modelInstance.postQuestionnaire(this.state.sendClass, content);
             } else {
-                modelInstance.postTemplate(1, this.state.questionnaireType, content);
+                modelInstance.postTemplate(this.state.questionnaireType, content);
             }
             this.resetNewQuestionnaireState();
         }
@@ -169,13 +177,35 @@ class NewQuestionnaire extends Component {
         });
     };
 
+    getClassSelectOption() {
+        if (this.state.showSendQuestionnaire) {
+            return (
+            <Form.Group controlId="validationSelectClass">
+                <Form.Label>Select a class to send the questionnaire to</Form.Label>
+                <Form.Control
+                required
+                as="select"
+                value={this.state.sendClass}
+                onChange={this.handleSendClassChange}>
+                    {Object.values(this.state.classes).map(key =>
+                        <option key={key.id} value={key.id}>
+                            {key.name}
+                        </option>
+                    )}
+                </Form.Control>
+                <Form.Control.Feedback type="invalid">Missing questionnaire type!</Form.Control.Feedback>
+            </Form.Group>
+            );
+        }
+    }
+
     resetNewQuestionState() {
         this.setState({
             validated: "",
             showAddQuestion: false,
             newQuestion: "",
             newQuestionMin: "",
-            newQuestionMax: "",
+            newQuestionMax: ""
         });
     };
 
@@ -184,24 +214,30 @@ class NewQuestionnaire extends Component {
             validatedQuestionnaire: "",
             showSaveQuestionnaire: false,
             showSendQuestionnaire: false,
-            questionnaireName: ""
+            questionnaireName: "",
+            sendClass: this.state.classes[0].id
         });
     };
 
     componentDidMount() {
+        modelInstance.getClassNames(this.state.teacherId).then(result => {
+            this.setState({
+                classes: result.classes,
+                sendClass: result.classes[0].id
+            });
+        }).catch(()=>{
+            console.log("Could not retrieve classes for teacher");
+        });
         modelInstance.getCategories(this.state.teacherId).then(result => {
             this.setState({
-                status: 'SUCCESS',
-                categories: result.categories
+                categories: result.categories,
+                questionnaireType: result.categories[0].id
             });
-            console.log("result testing API", this.state.categories);
         }).catch(()=>{
-            this.setState( {
-                status: 'ERROR'
-            });
-            console.log("status", this.state.status);
+            console.log("Could not retrieve categories for questionnaires");
         });
     };
+
 
     render() {
         return (
@@ -305,13 +341,9 @@ class NewQuestionnaire extends Component {
                         </InputGroup>
                         
                         <Button variant="primary_blue" type="submit">Submit</Button>
+                        <Button variant="gray" onClick={this.handleCloseAddQuestion}>Close</Button>
                     </Form>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="gray" onClick={this.handleCloseAddQuestion}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
                 </Modal>
 
 
@@ -349,20 +381,18 @@ class NewQuestionnaire extends Component {
                             as="select" 
                             value={this.state.questionnaireType}
                             onChange={this.handleQuestionnaireTypeChange}>
-                                <option value="sociometric">Students in class</option>
-                                <option value="atmosphere">Class atmosphere</option>
-                                <option value="learning">Learning</option>
+                                {this.state.categories.map((categoryOption) => (
+                                    <option key={categoryOption.id} value={categoryOption.id}>{categoryOption.name}</option>
+                                ))}
                             </Form.Control>
                             <Form.Control.Feedback type="invalid">Missing questionnaire type!</Form.Control.Feedback>
                         </Form.Group>
+                        {this.getClassSelectOption()}
+
                         <Button variant="primary_blue" type="submit">Submit</Button>
+                        <Button variant="gray" onClick={this.handleCloseSaveQuestionnaire}>Close</Button>
                     </Form>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="gray" onClick={this.handleCloseSaveQuestionnaire}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
                 </Modal>
             </div>
         );

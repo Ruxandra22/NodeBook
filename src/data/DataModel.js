@@ -24,11 +24,8 @@ class DataModel {
         return fetch(url, httpOptions).then(this.processResponse);
     }
 
-    postQuestionnaire(teacherId, classId, studentId, content) {
-        const url = `${BASE_URL}/api/teacher/create_experiment/` + classId + `/` + studentId;
-        console.log("Posting a questionnaire to class...");
-        console.log(content)
-        // /api/teacher/create_experiment/<class_id>/<student_id></student_id>
+    postQuestionnaire(classId, content) {
+        const url = `${BASE_URL}/api/teacher/create_experiment/` + classId;
         return fetch(url, {
             method: 'POST',
             headers: {
@@ -42,11 +39,8 @@ class DataModel {
         }).catch(err => err);
     }
 
-    postTemplate(teacherId, categoryId, content) {
+    postTemplate(categoryId, content) {
         const url = `${BASE_URL}/api/teacher/save_template/` + categoryId;
-        console.log("Posting a template...");
-        console.log(content);
-        // /api/teacher/save_template/<category_id>
         return fetch(url, {
             method: 'POST',
             headers: {
