@@ -4,7 +4,6 @@ import modelInstance from "../data/DataModel";
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import Row from 'react-bootstrap/Row'
 
 import Graph from "react-graph-vis";

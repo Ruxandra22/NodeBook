@@ -68,7 +68,7 @@ class HomePage extends Component {
  
         let shortCutsElement = shortCuts.map((shortCut) =>
         <Col sm="3">
-            <div id="shortCut"  key={shortCut} className="card">
+            <div key={shortCut} className="card">
                 <Link to={{pathname: '/' + routingPath[i++]}}>
                     <Name title={shortCut} />
                     <Image image={shortCutImages[j++]}/>
@@ -84,13 +84,11 @@ class HomePage extends Component {
                         <h1> HOME </h1>
                     </div>
                 </Container>
-                {/* <Container > */}
                 <div className="shortCutBox">
                     <Row>
                         {shortCutsElement}
                     </Row>
                 </div>
-                {/* </Container> */}
             </div>
         );
     }
