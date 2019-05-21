@@ -39,7 +39,6 @@ class NewQuestionnaire extends Component {
 
 
         this.state = {
-            redirect: false,
             status: "",
             teacherId: 1,
             classes: "",
@@ -67,27 +66,12 @@ class NewQuestionnaire extends Component {
             number: 0,
         };
     }
-
-    fun() {
-        this.props.history.push("/");
-      }
-      
+     
+    //route back to home after questionnaire has been sent
     routeChange() {
         let path = `/`;
         this.props.history.push(path);
       }
-
-    setRedirect = () => {
-        this.setState({
-          redirect: true,
-        })
-      }
-
-    renderRedirect = () => {
-    if (this.state.redirect) {
-        return <Redirect to="/test" />
-    }
-    }
 
     // Handle opening and closing of modals
     handleCloseAddQuestion() {
