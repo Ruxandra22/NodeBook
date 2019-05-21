@@ -340,7 +340,7 @@ class NewQuestionnaire extends Component {
                             <Form.Control.Feedback type="invalid">Missing minimum and maximum values!</Form.Control.Feedback>
                         </InputGroup>
                         
-                        <Button variant="primary_blue" type="submit">Submit</Button>
+                        <Button variant="primary_blue" type="submit">Ok</Button>
                         <Button variant="gray" onClick={this.handleCloseAddQuestion}>Close</Button>
                     </Form>
                     </Modal.Body>
@@ -389,7 +389,7 @@ class NewQuestionnaire extends Component {
                         </Form.Group>
                         {this.getClassSelectOption()}
 
-                        <Button variant="primary_blue" type="submit">Submit</Button>
+                        <Button variant="primary_blue" type="submit">Ok</Button>
                         <Button variant="gray" onClick={this.handleCloseSaveQuestionnaire}>Close</Button>
                     </Form>
                     </Modal.Body>
