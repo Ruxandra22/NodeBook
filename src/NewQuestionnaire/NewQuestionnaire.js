@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import modelInstance from "../data/DataModel";
 import QuestionComponent from "../components/QuestionComponent";
 import './NewQuestionnaire.css';
@@ -33,8 +35,11 @@ class NewQuestionnaire extends Component {
         this.handleQuestionnaireTypeChange = this.handleQuestionnaireTypeChange.bind(this);
         this.handleSendClassChange = this.handleSendClassChange.bind(this);
 
+        this.routeChange = this.routeChange.bind(this);
+
 
         this.state = {
+            redirect: false,
             status: "",
             teacherId: 1,
             classes: "",
@@ -63,6 +68,27 @@ class NewQuestionnaire extends Component {
         };
     }
 
+    fun() {
+        this.props.history.push("/");
+      }
+      
+    routeChange() {
+        let path = `/`;
+        this.props.history.push(path);
+      }
+
+    setRedirect = () => {
+        this.setState({
+          redirect: true,
+        })
+      }
+
+    renderRedirect = () => {
+    if (this.state.redirect) {
+        return <Redirect to="/test" />
+    }
+    }
+
     // Handle opening and closing of modals
     handleCloseAddQuestion() {
         this.setState({ showAddQuestion: false });
@@ -82,6 +108,7 @@ class NewQuestionnaire extends Component {
 
     handleShowSendQuestionnaire() {
         this.setState({ showSendQuestionnaire: true, showSaveQuestionnaire: true });
+        this.setRedirect;
     };
 
     handleCloseSendQuestionnaire() {
@@ -340,7 +367,7 @@ class NewQuestionnaire extends Component {
                             <Form.Control.Feedback type="invalid">Missing minimum and maximum values!</Form.Control.Feedback>
                         </InputGroup>
                         
-                        <Button variant="primary_blue" type="submit">Ok</Button>
+                        <Button variant="primary_blue" type="submit" >Ok</Button>
                         <Button variant="gray" onClick={this.handleCloseAddQuestion}>Close</Button>
                     </Form>
                     </Modal.Body>
@@ -389,7 +416,7 @@ class NewQuestionnaire extends Component {
                         </Form.Group>
                         {this.getClassSelectOption()}
 
-                        <Button variant="primary_blue" type="submit">Ok</Button>
+                        <Button variant="primary_blue" type="submit" onClick={this.routeChange}>Ok</Button>
                         <Button variant="gray" onClick={this.handleCloseSaveQuestionnaire}>Close</Button>
                     </Form>
                     </Modal.Body>

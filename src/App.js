@@ -28,14 +28,14 @@ class App extends Component {
         return (
             <div className="App">
                 <Menu/>
-                <Route exact path="/" component={HomePage} />
+                <Route exact path="/" component={HomePage}/>
                 <Route
                 path="/Questionnaires"
                 render={() => <Questionnaires model={modelInstance} />}
                 />
                 <Route
                 path="/newQuestionnaire"
-                render={() => <NewQuestionnaire model={modelInstance} />}
+                render={(props) => <NewQuestionnaire  {...props} model={modelInstance} />}
                 />
                 <Route
                 path="/yourClasses"
