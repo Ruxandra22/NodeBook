@@ -28,7 +28,7 @@ class Menu extends Component {
 				</Link>
                 <Typography>
                     <Link to="/teacherProfile" className="link">
-                        Anna Lingren
+                         Tina Erklund
                         <img className="login-icon" src={require("../images/teacher.png")} alt={"Login Icon"} width="38px" height="38px"/>
                     </Link>
                 </Typography>

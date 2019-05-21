@@ -28,7 +28,7 @@ class TeacherProfile extends Component {
 
                         <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
                             <div className="teacherDescription">
-                                <h2 className="aboutMe"> Anna Lingren</h2>
+                                <h2 className="aboutMe"> Tina Erklund</h2>
                                 <hr></hr>
                                 <p>I am a math and physics teacher.</p>
                                 <p>My mentor class is 11A.</p>
