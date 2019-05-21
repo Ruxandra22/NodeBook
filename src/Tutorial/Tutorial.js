@@ -18,16 +18,16 @@ class Tutorial extends Component {
 				<div className="row">
 
 					<Container >
-						<div className="title_tutorial">
+						<div className="title_our_message">
 							<h3>Our Message</h3>
 						</div>
 					</Container>
 					<div className="col-md-3"></div>
-					<div className="tutorial">	
-							<div className="col-md-8">	
-								<iframe frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/nodebook-add-bdlabs-2270771" allowfullscreen="true" allow="autoplay"></iframe><p><a href="https://biteable.com/watch/nodebook-add-bdlabs-2270771"></a> <a href="https://biteable.com"></a>.</p>
-							</div>
+					<div className="our_message">
+						<div className="col-md-8">
+							<iframe frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/nodebook-add-bdlabs-2270771" allowfullscreen="true" allow="autoplay"></iframe><p><a href="https://biteable.com/watch/nodebook-add-bdlabs-2270771"></a> <a href="https://biteable.com"></a>.</p>
 						</div>
+					</div>
 				</div>
 				
 				
@@ -38,13 +38,11 @@ class Tutorial extends Component {
 						</div>
 					</Container>
 					<div className="col-md-3"></div>
-					{/* <div className="tutorial">	 */}
-							<div className="col-md-8">
-								<video className="tutorial_video" width="1000" controls autoPlay="true">
-									<source src={tutorialVideo}/>
-								</video>
-							</div>
-						{/* </div> */}
+					<div className="col-md-8">
+						<video className="tutorial_video" width="1000" controls autoPlay="true">
+							<source src={tutorialVideo}/>
+						</video>
+					</div>
 				</div>
 
 				

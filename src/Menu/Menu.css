@@ -5,10 +5,9 @@
 }
 
 .logo{
-    position: relative;
-    left: -33%;
-    margin-left: 20px;
-    margin-right: 20px;
+    position:absolute;
+    top: 0;
+    left: 70px;
 }
 
 .login-icon{
@@ -41,7 +40,6 @@
 .contact_us {
     color: #5E94B0;
 }
-
 
 .link {
     color: #000;

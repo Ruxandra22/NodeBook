@@ -23,7 +23,9 @@ class Menu extends Component {
         return (
             <MDBNavbar color="white" light>
                 <MDBNavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
-                <img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
+                <Link to="/">
+                	<img className="logo" src={logo} alt="NodeBook Logo" width="164px" height="54px"/>
+				</Link>
                 <Typography>
                     <Link to="/teacherProfile" className="link">
                         Anna Lingren

@@ -4,6 +4,18 @@
     margin-bottom: -30px;
 }
 
+.title_our_message {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: -30px;
+}
+
+.our_message {
+    top: 50px;
+    margin-left: 75px;
+    margin-top: 100px;
+}
+
 h1 {
     font-family: Open Sans, Light;
 }
@@ -13,10 +25,4 @@ h1 {
     top: 50px;
     margin-left: -87px;
     margin-top: 70px;
-}
-
-.tutorial{
-    top: 50px;
-    margin-left: 75px;
-    margin-top: 100px;
 }
