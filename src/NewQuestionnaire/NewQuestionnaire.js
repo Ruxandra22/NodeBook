@@ -173,6 +173,7 @@ class NewQuestionnaire extends Component {
             event.stopPropagation();
         }
         this.setState({ validatedQuestionnaire: true });
+        this.props.history.push('/');
     };
 
     setQuestionComponents() {
@@ -400,7 +401,7 @@ class NewQuestionnaire extends Component {
                         </Form.Group>
                         {this.getClassSelectOption()}
 
-                        <Button variant="primary_blue" type="submit" onClick={this.routeChange}>Ok</Button>
+                        <Button variant="primary_blue" type="submit" >Ok</Button>
                         <Button variant="gray" onClick={this.handleCloseSaveQuestionnaire}>Close</Button>
                     </Form>
                     </Modal.Body>
@@ -410,4 +411,4 @@ class NewQuestionnaire extends Component {
     };
 }
 
-export default NewQuestionnaire;
+export default withRouter(NewQuestionnaire);
